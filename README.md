@@ -17,6 +17,7 @@ library(wcfish)
 
 Overview
 ---------
+Coming soon.
 
 
 Datasets
@@ -24,8 +25,9 @@ Datasets
 
 - Estimated average requirements (EARs): `?ears`
 - Dietary reference intakes (RDIs): `?rdis`
-- Subnational nutrient distributipn parameters: `?dists`
+- Subnational nutrient distribution parameters: `?dists`
 - ...
+
 
 Functions
 ---------
@@ -35,6 +37,7 @@ Functions
 - Shift subnational nutrient distributions of interest: `?shift_dist`
 - ....
 
+
 Citation
 ------------
 
@@ -43,6 +46,8 @@ Parrarelli et al. Global modelling of subnational nutrient distributions. In pre
 
 Detailed description
 ---------
+
+[actively writing this]
 
 The R package provides subnational nutrient distributions for the following 9 macronutrients and 19 micronutrients.
 
