@@ -27,8 +27,13 @@ Datasets
 Functions
 ---------
 
+Citation
+------------
 
-Description
+Parrarelli et al. Global modelling of subnational nutrient distributions. In prep.
+
+
+Detailed description
 ---------
 
 The R package provides subnational nutrient distributions for the following 9 macronutrients and 19 micronutrients.
@@ -100,8 +105,4 @@ __Asia__ (4 countries)
 * Lao
 * Philippines
 
-
-Citation
-------------
-
-Parrarelli et al. Global modelling of subnational nutrient distributions. In prep.
+The subnational distributions are broken into X age-sex groups comprised of males and females in 5-yr age classes capped at 80-years-old (i.e., 1-5, 5-9, 10-14, …., 75-79, 80+).
