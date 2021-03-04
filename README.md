@@ -23,6 +23,8 @@ Coming soon.
 Datasets
 ---------
 
+The package includes the following datasets:
+
 - Estimated average requirements (EARs): `?ears`
 - Dietary reference intakes (RDIs): `?rdis`
 - Subnational nutrient distribution parameters: `?dists`
@@ -32,8 +34,10 @@ Datasets
 Functions
 ---------
 
-- Extract subnational nutrient distributions of interst: `?get_dist`
-- Plot subnational nutrient distributions of interst: `?plot_dist`
+The package includes the following functions:
+
+- Extract subnational nutrient distributions of interest: `?get_dist`
+- Plot subnational nutrient distributions of interest: `?plot_dist`
 - Shift subnational nutrient distributions of interest: `?shift_dist`
 - ....
 
