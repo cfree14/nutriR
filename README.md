@@ -22,10 +22,18 @@ Overview
 Datasets
 ---------
 
-
+- Estimated average requirements (EARs): `?ears`
+- Dietary reference intakes (RDIs): `?rdis`
+- Subnational nutrient distributipn parameters: `?dists`
+- ...
 
 Functions
 ---------
+
+- Extract subnational nutrient distributions of interst: `?get_dist`
+- Plot subnational nutrient distributions of interst: `?plot_dist`
+- Shift subnational nutrient distributions of interest: `?shift_dist`
+- ....
 
 Citation
 ------------
