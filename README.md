@@ -20,7 +20,7 @@ Description
 
 The R package provides subnational nutrient distributions for the following 9 macronutrients and 19 micronutrients.
 
-Macronutrients
+__Macronutrients (9 total)__
 * Energy (kcal)
 * Protein (g)
 * Carbohydrate (g)
@@ -31,7 +31,7 @@ Macronutrients
 * Saturated fat (g)
 * Total sugars (g)
 
-Minerals
+__Minerals (9 total)__
 * Choline (mg)
 * Copper (mg)
 * Iodine (mg)
@@ -42,7 +42,7 @@ Minerals
 * Selenium (mg)
 * Sodium (mg)
 
-Vitamins
+__Vitamins (10 total)__
 * Vitamin A (mcg RAE)
 * Vitamin B6 (mg)
 * Vitamin B12 (mcg)
