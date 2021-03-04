@@ -25,8 +25,7 @@ Datasets
 
 The package includes the following datasets:
 
-- Estimated average requirements (EARs): `?ears`
-- Dietary reference intakes (RDIs): `?rdis`
+\- Dietary reference intakes (DRIs): `?dris`
 - Subnational nutrient distribution parameters: `?dists`
 - ...
 
