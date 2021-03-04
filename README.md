@@ -15,3 +15,17 @@ devtools::install_github("cfree14/nutriR", force=T)
 library(wcfish)
 ```
 
+Datasets
+---------
+
+
+
+Functions
+---------
+
+
+
+Citation
+------------
+
+Parrarelli et al. Global modelling of subnational nutrient distributions. In prep.
