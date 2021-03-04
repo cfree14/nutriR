@@ -15,6 +15,19 @@ devtools::install_github("cfree14/nutriR", force=T)
 library(wcfish)
 ```
 
+Overview
+---------
+
+
+Datasets
+---------
+
+
+
+Functions
+---------
+
+
 Description
 ---------
 
@@ -54,15 +67,38 @@ __Vitamins (10 total)__
 * Niacin (Vitamin B3) (mg)
 * Folate (Vitamin B9) (mcg)
 
+The data come from the following 21 countries but can get extrapolated to other countries based on nearest neighbor associations.
 
-Datasets
----------
+North America (3 countries)
+* Canada
+* Mexico
+* USA
 
+South America (1 country)
+* Bolivia
 
+Africa (5 countries)
+* Burkina Faso
+* Ethiopia
+* Kenya
+* Uganda
+* Zambia
 
-Functions
----------
+Europe (8 countries)
+* Bosnia
+* Bulgaria
+* Estonia
+* Italy
+* Netherlands
+* Portugal
+* Romania
+* Sweden
 
+Asia (4 countries)
+* Bangladesh
+* China
+* Lao
+* Philippines
 
 
 Citation
