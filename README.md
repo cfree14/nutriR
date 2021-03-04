@@ -33,7 +33,7 @@ Description
 
 The R package provides subnational nutrient distributions for the following 9 macronutrients and 19 micronutrients.
 
-__Macronutrients (9 total)__
+__Macronutrients__ (9 total)
 * Energy (kcal)
 * Protein (g)
 * Carbohydrate (g)
@@ -44,7 +44,7 @@ __Macronutrients (9 total)__
 * Saturated fat (g)
 * Total sugars (g)
 
-__Minerals (9 total)__
+__Minerals__ (9 total)
 * Choline (mg)
 * Copper (mg)
 * Iodine (mg)
@@ -55,7 +55,7 @@ __Minerals (9 total)__
 * Selenium (mg)
 * Sodium (mg)
 
-__Vitamins (10 total)__
+__Vitamins__ (10 total)
 * Vitamin A (mcg RAE)
 * Vitamin B6 (mg)
 * Vitamin B12 (mcg)
@@ -69,22 +69,22 @@ __Vitamins (10 total)__
 
 The data come from the following 21 countries but can get extrapolated to other countries based on nearest neighbor associations.
 
-North America (3 countries)
+__North America__ (3 countries)
 * Canada
 * Mexico
 * USA
 
-South America (1 country)
+__South America__ (1 country)
 * Bolivia
 
-Africa (5 countries)
+__Africa__ (5 countries)
 * Burkina Faso
 * Ethiopia
 * Kenya
 * Uganda
 * Zambia
 
-Europe (8 countries)
+__Europe__ (8 countries)
 * Bosnia
 * Bulgaria
 * Estonia
@@ -94,7 +94,7 @@ Europe (8 countries)
 * Romania
 * Sweden
 
-Asia (4 countries)
+__Asia__ (4 countries)
 * Bangladesh
 * China
 * Lao
