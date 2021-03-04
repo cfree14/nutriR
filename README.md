@@ -25,7 +25,7 @@ Datasets
 
 The package includes the following datasets:
 
-\- Dietary reference intakes (DRIs): `?dris`
+- Dietary reference intakes (DRIs): `?dris`
 - Subnational nutrient distribution parameters: `?dists`
 - ...
 
@@ -37,7 +37,7 @@ The package includes the following functions:
 
 - Extract subnational nutrient distributions of interest: `?get_dist`
 - Plot subnational nutrient distributions of interest: `?plot_dist`
-- Shift subnational nutrient distributions of interest: `?shift_dist`
+- Shift subnational nutrient distributions of interest: `?shift_dist` -- COMING SOON
 - ....
 
 
