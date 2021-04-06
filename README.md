@@ -35,9 +35,10 @@ Functions
 
 The package includes the following functions:
 
-- Extract subnational nutrient distributions of interest: `?get_dist`
-- Plot subnational nutrient distributions of interest: `?plot_dist`
-- Shift subnational nutrient distributions of interest: `?shift_dist` -- COMING SOON
+- Extract subnational nutrient distributions of interest: `?get_dists`
+- Plot subnational nutrient distributions of interest: `?plot_dists`
+- Generate subnational nutrient distributions for independent plotting: `?generate_dists`
+- Shift subnational nutrient distributions of interest: `?shift_dists` -- COMING SOON
 - ....
 
 
