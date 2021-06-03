@@ -16,10 +16,10 @@ variance(shape = NULL, rate = NULL, meanlog = NULL, sdlog = NULL)
 \item{sdlog}{Standard deviation parameter for gamma distribution}
 }
 \value{
-The skewness of the distribution
+The variance of the distribution
 }
 \description{
-This function calculates the skewness of a habitual intake distribution. It handles gamma and log-normal distributions.
+This function calculates the variance of a habitual intake distribution. It handles gamma and log-normal distributions.
 }
 \examples{
 variance(shape=1, rate=0.5)

@@ -1,32 +1,32 @@
-#' Calculate the variance of a habitual intake distribution
+#' Calculate the mean of a habitual intake distribution
 #'
-#' This function calculates the variance of a habitual intake distribution. It handles gamma and log-normal distributions.
+#' This function calculates the mean of a habitual intake distribution. It handles gamma and log-normal distributions.
 #'
 #' @param shape Shape parameter for gamma distribution
 #' @param rate Rate parameter for gamma distribution
 #' @param meanlog Mean parameter for gamma distribution
 #' @param sdlog Standard deviation parameter for gamma distribution
-#' @return The variance of the distribution
+#' @return The mean of the distribution
 #' @examples
-#' variance(shape=1, rate=0.5)
+#' mean_dist(shape=1, rate=0.5)
 #' @export
-variance <- function(shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL){
+mean_dist <- function(shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL){
 
   # Which distribution?
   dist <- ifelse(!is.null(shape), "gamma", "log-normal")
 
   # If Gamma
   if(dist=="gamma"){
-    var <- shape/rate^2
+    mu <- shape/rate
   }
 
   # If log-normal
   if(dist=="log-normal"){
-    var <- ( exp(sdlog^2)-1 ) * exp(2*meanlog + sdlog^2)
+    mu <- exp(meanlog + sdlog^2/2)
   }
 
   # Return
-  return(var)
+  return(mu)
 
 }
 
