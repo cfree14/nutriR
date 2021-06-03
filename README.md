@@ -12,7 +12,7 @@ install.packages("devtools")
 
 # Run once devtools is successfully installed
 devtools::install_github("cfree14/nutriR", force=T)
-library(wcfish)
+library(nutriR)
 ```
 
 Overview
@@ -38,7 +38,8 @@ The package includes the following functions:
 - Extract subnational nutrient distributions of interest: `?get_dists`
 - Plot subnational nutrient distributions of interest: `?plot_dists`
 - Generate subnational nutrient distributions for independent plotting: `?generate_dists`
-- Shift subnational nutrient distributions of interest: `?shift_dists` -- COMING SOON
+- Shift subnational nutrient distributions of interest: `?shift_dists`
+- Calculate the variance, skewness, and kurtosis of distributions: `?variance`, `?skewness`, `?kurtosis`
 - ....
 
 
