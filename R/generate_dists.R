@@ -4,7 +4,7 @@
 #'
 #' @param dists A data frame of nutrient distributions
 #' @return A dataframe
-#' @example
+#' @examples
 #' dists <- nutriR::get_dists(isos=c("USA", "GHA"), nutrients=c("Iron"), sexes="MF", ages=20:40)
 #' dists_sim <- nutriR::generate_dists(dists)
 #' @export
@@ -57,7 +57,7 @@ generate_dists <- function(dists){
       sdlog <- dists$ln_sdlog[i]
 
       # Set maximum value
-      xmax <- qlnorm(0.99, meanlog=meanlog, sdlog=sdlog)
+      xmax <- qlnorm(0.9999, meanlog=meanlog, sdlog=sdlog)
 
       # Build curve
       x <- seq(xmin, xmax, length.out = 200)

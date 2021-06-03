@@ -7,6 +7,7 @@
 #' @param sexes A character string of sexes of interest (i.e., "M", "F", or "MF")
 #' @param ages  A numeric vector of ages of interest (e.g., 10:50, 0:75, 55:90)
 #' @return A data frame with the parameters describing the requested subnational intake distributions
+#' @examples
 #' dists_all <- get_dists()
 #' dists_usa <- get_dists(isos="USA")
 #' dists_usa_iron <- get_dists(isos="USA", nutrients="Iron", sexes="MF")

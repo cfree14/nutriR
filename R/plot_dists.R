@@ -4,6 +4,7 @@
 #'
 #' @param dists A data frame of nutrient distributions
 #' @return A plot
+#' @example
 #' dists <- dists_full %>% slice(1:3)
 #' @export
 plot_dists <- function(dists){

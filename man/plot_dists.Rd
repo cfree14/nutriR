@@ -11,7 +11,6 @@ plot_dists(dists)
 }
 \value{
 A plot
-dists <- dists_full %>% slice(1:3)
 }
 \description{
 This function prepares a quick plot comparing subnational nutrient intake distributions. It is provided a dataframe generated from the get_dists() function.

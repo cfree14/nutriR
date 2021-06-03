@@ -17,11 +17,13 @@ get_dists(nutrients = NULL, isos = NULL, sexes = NULL, ages = NULL)
 }
 \value{
 A data frame with the parameters describing the requested subnational intake distributions
+}
+\description{
+This function retrieves the subnational nutrient intake distributions modelled by Passarreli et al. (in prep).
+}
+\examples{
 dists_all <- get_dists()
 dists_usa <- get_dists(isos="USA")
 dists_usa_iron <- get_dists(isos="USA", nutrients="Iron", sexes="MF")
 dists_usa_iron_2040 <- get_dists(isos="USA", nutrients="Iron", sexes="MF", ages=20:40)
-}
-\description{
-This function retrieves the subnational nutrient intake distributions modelled by Passarreli et al. (in prep).
 }

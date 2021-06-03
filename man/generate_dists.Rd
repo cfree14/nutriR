@@ -15,3 +15,7 @@ A dataframe
 \description{
 This function generates data for plotting subnational nutrient intake distributions. It is provided a dataframe generated from the get_dists() function.
 }
+\examples{
+dists <- nutriR::get_dists(isos=c("USA", "GHA"), nutrients=c("Iron"), sexes="MF", ages=20:40)
+dists_sim <- nutriR::generate_dists(dists)
+}
