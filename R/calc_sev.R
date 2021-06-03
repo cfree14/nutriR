@@ -13,12 +13,6 @@
 #' @export
 calc_sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
-  # For testing
-  # cv <-  0.1 # 0.25 for Vitamin B-12 and 0.10 for everything else
-  # ear <- ear$value
-  # shape <- dist_do$g_shape
-  # rate <- dist_do$g_rate
-
   # Define habitual intake distribution
   Intake <- function(x){dgamma(x, shape=shape, rate=rate)}
 
@@ -56,5 +50,3 @@ calc_sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, p
   return(SEV)
 
 }
-
-

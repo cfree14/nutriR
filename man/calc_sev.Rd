@@ -17,6 +17,8 @@ calc_sev(
 \arguments{
 \item{ear}{Estimated Average Requirement (EAR)}
 
+\item{cv}{Coefficient of variation (CV)}
+
 \item{shape}{Shape parameter for gamma distribution}
 
 \item{rate}{Rate parameter for gamma distribution}
