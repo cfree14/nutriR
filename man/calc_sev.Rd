@@ -33,7 +33,3 @@ The percent of a population deficient in a nutrient (SEV)
 \description{
 This function calculates the summary exposure value (SEV), or percent deficiency, for a group based on its Estimated Average Requirement and its habitual intake distribution.
 }
-\examples{
-dist_do <- get_dists(nutrients="Calcium", isos="USA", sexes="F", ages=25)
-ear <- dris \%>\% filter(nutrient=="Calcium" & sex=="Females" & age_range=="19-30 yr" & stage=="None" & dri_type=="Estimated Average Requirement (EAR)")
-}
