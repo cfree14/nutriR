@@ -9,42 +9,70 @@
 #' @examples
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=2, rate=2), plot=T) # same distribution
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=3, rate=2), plot=T) # slighly different
+#' overlap(dist1=list(shape=2, rate=2), dist2=list(meanlog=0.5, sdlog=0.4), plot=T) # slightly different
+#' overlap(dist1=list(meanlog=0.5, sdlog=0.4), dist2=list(shape=2, rate=2), plot=T) # slightly different
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=15, rate=4), plot=T) # more different
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=30, rate=4), plot=T) # very different
 #' @export
 overlap <- function(dist1, dist2, plot=F){
 
   # Build distribution 1
-  shape1 <- dist1$shape
-  rate1 <- dist1$rate
-  dist1 <- function(x){dgamma(x, shape=shape1, rate=rate1)}
+  dist1_type <- ifelse("shape" %in% names(dist1), "gamma", "log-normal")
+  if(dist1_type=="gamma"){
+    shape1 <- dist1$shape
+    rate1 <- dist1$rate
+    dist1_func <- function(x){dgamma(x, shape=shape1, rate=rate1)}
+  }else{
+    meanlog1 <- dist1$meanlog
+    sdlog1 <- dist1$sdlog
+    dist1_func <- function(x){dlnorm(x, sdlog=sdlog1, meanlog=meanlog1)}
+  }
 
   # Build distribution 2
-  shape2 <- dist2$shape
-  rate2 <- dist2$rate
-  dist2 <- function(x){dgamma(x, shape=shape2, rate=rate2)}
+  dist2_type <- ifelse("shape" %in% names(dist2), "gamma", "log-normal")
+  if(dist2_type=="gamma"){
+    shape2 <- dist2$shape
+    rate2 <- dist2$rate
+    dist2_func <- function(x){dgamma(x, shape=shape2, rate=rate2)}
+  }else{
+    meanlog2 <- dist2$meanlog
+    sdlog2 <- dist2$sdlog
+    dist2_func <- function(x){dlnorm(x, sdlog=sdlog2, meanlog=meanlog2)}
+  }
 
   # Calculate Bhattacharyya coefficient (percent overlap in two distributions)
   # https://en.wikipedia.org/wiki/Bhattacharyya_distance
-  bc_integral <- function(x){sqrt(dist1(x)*dist2(x))}
+  bc_integral <- function(x){sqrt(dist1_func(x)*dist2_func(x))}
   bc <- integrate(bc_integral, lower=0, upper=Inf)
   poverlap <- bc$value * 100
 
   # If plotting
   if(plot==T){
 
-    # Simulate values
-    xmax1 <- qgamma(0.9999, shape=shape1, rate=rate1)
-    xmax2 <- qgamma(0.9999, shape=shape2, rate=rate2)
+    # Set x-max for simulations
+    if(dist1_type=="gamma"){
+      xmax1 <- qgamma(0.999, shape=shape1, rate=rate1)
+    }else{
+      xmax1 <- qlnorm(0.999, sdlog=sdlog1, meanlog=meanlog1)
+    }
+    if(dist2_type=="gamma"){
+      xmax2 <- qgamma(0.999, shape=shape2, rate=rate2)
+    }else{
+      xmax2 <- qlnorm(0.999, sdlog=sdlog2, meanlog=meanlog2)
+    }
     xmax <- max(xmax1, xmax2)
     x <- seq(0, xmax, length.out = 1000)
-    y1 <- dist1(x=x)
-    y2 <- dist2(x=x)
-    df1 <- tibble(dist="Distribution 1", x=x, y=y1)
-    df2 <- tibble(dist="Distribution 2", x=x, y=y2)
+
+    # Simulate values
+    y1 <- dist1_func(x=x)
+    y2 <- dist2_func(x=x)
+    dist1_label <- paste(names(dist1), unlist(dist1), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 1", ., sep="\n")
+    dist2_label <- paste(names(dist2), unlist(dist2), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 2", ., sep="\n")
+    df1 <- tibble(dist=dist1_label, x=x, y=y1)
+    df2 <- tibble(dist=dist2_label, x=x, y=y2)
     df <- bind_rows(df1, df2)
 
-    # Label
+    # Percent overlap label
     plabel <- paste0(round(poverlap,1), "% overlap")
 
     # Plot data
@@ -54,8 +82,7 @@ overlap <- function(dist1, dist2, plot=F){
       labs(y="Density", x="Nutrient intake", title=plabel) +
       scale_color_discrete(name="") +
       # Theme
-      theme_bw() +
-      theme(legend.position="bottom")
+      theme_bw()
     print(g)
 
   }

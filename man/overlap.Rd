@@ -22,6 +22,8 @@ This function calculates the percent overlap between two nutrient intake distrib
 \examples{
 overlap(dist1=list(shape=2, rate=2), dist2=list(shape=2, rate=2), plot=T) # same distribution
 overlap(dist1=list(shape=2, rate=2), dist2=list(shape=3, rate=2), plot=T) # slighly different
+overlap(dist1=list(shape=2, rate=2), dist2=list(meanlog=0.5, sdlog=0.4), plot=T) # slightly different
+overlap(dist1=list(meanlog=0.5, sdlog=0.4), dist2=list(shape=2, rate=2), plot=T) # slightly different
 overlap(dist1=list(shape=2, rate=2), dist2=list(shape=15, rate=4), plot=T) # more different
 overlap(dist1=list(shape=2, rate=2), dist2=list(shape=30, rate=4), plot=T) # very different
 }
