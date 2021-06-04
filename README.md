@@ -27,7 +27,6 @@ The package includes the following datasets:
 
 - Dietary reference intakes (DRIs): `?dris`
 - Subnational nutrient distribution parameters: `?dists`
-- ...
 
 
 Functions
@@ -39,88 +38,12 @@ The package includes the following functions:
 - Plot subnational nutrient distributions of interest: `?plot_dists`
 - Generate subnational nutrient distributions for independent plotting: `?generate_dists`
 - Shift subnational nutrient distributions of interest: `?shift_dists`
-- Calculate the variance, skewness, and kurtosis of distributions: `?variance`, `?skewness`, `?kurtosis`
-- ....
+- Calculate the mean of distributions: `?mean_dist`
+- Calculate the C.V., variance, skewness, and kurtosis of distributions: `?cv`, `?variance`, `?skewness`, `?kurtosis`
 
 
 Citation
 ------------
 
-Parrarelli et al. Global modelling of subnational nutrient distributions. In prep.
+Passarelli S, Free CM, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD. Global modeling of subnational habitual nutrient intake distributions. In prep.
 
-
-Detailed description
----------
-
-[actively writing this]
-
-The R package provides subnational nutrient distributions for the following 9 macronutrients and 19 micronutrients.
-
-__Macronutrients__ (9 total)
-* Energy (kcal)
-* Protein (g)
-* Carbohydrate (g)
-* Fat (g)
-* Beta carotene (mcg)
-* Alcohol (g)
-* Added sugar (g)
-* Saturated fat (g)
-* Total sugars (g)
-
-__Minerals__ (9 total)
-* Choline (mg)
-* Copper (mg)
-* Iodine (mg)
-* Magnesium (mg)
-* Manganese (mg)
-* Phosphorus (mg)
-* Potassium (mg)
-* Selenium (mg)
-* Sodium (mg)
-
-__Vitamins__ (10 total)
-* Vitamin A (mcg RAE)
-* Vitamin B6 (mg)
-* Vitamin B12 (mcg)
-* Vitamin C (mg)
-* Vitamin D (mcg)
-* Vitamin E (mg)
-* Thiamin (Vitamin B1) (mg)
-* Riboflavin (Vitamin B2) (mg)
-* Niacin (Vitamin B3) (mg)
-* Folate (Vitamin B9) (mcg)
-
-The data come from the following 21 countries but can get extrapolated to other countries based on nearest neighbor associations.
-
-__North America__ (3 countries)
-* Canada
-* Mexico
-* USA
-
-__South America__ (1 country)
-* Bolivia
-
-__Africa__ (5 countries)
-* Burkina Faso
-* Ethiopia
-* Kenya
-* Uganda
-* Zambia
-
-__Europe__ (8 countries)
-* Bosnia
-* Bulgaria
-* Estonia
-* Italy
-* Netherlands
-* Portugal
-* Romania
-* Sweden
-
-__Asia__ (4 countries)
-* Bangladesh
-* China
-* Lao
-* Philippines
-
-The subnational distributions are broken into X age-sex groups comprised of males and females in 5-yr age classes capped at 80-years-old (i.e., 1-5, 5-9, 10-14, …., 75-79, 80+).
