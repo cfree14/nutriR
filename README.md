@@ -46,5 +46,7 @@ The package includes the following functions:
 Citation
 ------------
 
+Free CM, Passarelli S, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD. (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
+
 Passarelli S, Free CM, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD. Global modeling of subnational habitual nutrient intake distributions. In prep.
 
