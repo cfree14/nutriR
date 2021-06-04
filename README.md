@@ -40,6 +40,7 @@ The package includes the following functions:
 - Shift subnational nutrient distributions of interest: `?shift_dists`
 - Calculate the mean of distributions: `?mean_dist`
 - Calculate the C.V., variance, skewness, and kurtosis of distributions: `?cv`, `?variance`, `?skewness`, `?kurtosis`
+- Calculate percent overlap (Bhattacharyya coefficient) of distributions: `?overlap`
 
 
 Citation
