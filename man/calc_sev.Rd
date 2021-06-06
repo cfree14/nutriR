@@ -35,3 +35,7 @@ The percent of a population deficient in a nutrient (SEV)
 \description{
 This function calculates the summary exposure value (SEV), or percent deficiency, for a group based on its Estimated Average Requirement and its habitual intake distribution.
 }
+\examples{
+calc_sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
+calc_sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
+}
