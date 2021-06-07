@@ -16,6 +16,9 @@
 #' @export
 sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
+  # An example with bad integrand behavior
+  # ear <- 10; cv <- 0.1; meanlog <- -36.92221; sdlog <- 46.77756; shape <- NULL
+
   # Is an EAR provided?
   if(is.na(ear) | is.na(cv)){
 
@@ -47,10 +50,16 @@ sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
     integrant <- function(x){risk_func(x)*Intake(x)}
 
     # Solve integral
-    solution <- integrate(integrant, lower=0, upper=Inf)
+    # Add a try function in case there is bad behavior
+    solution <- try(integrate(integrant, lower=0, upper=Inf))
 
     # Extract SEV
-    sev <- solution$value * 100
+    if(inherits(solution, "try-error")){
+      sev <- NA
+      warning("Extremely bad integrand behaviour. Returning NA for the SEV value.")
+    }else{
+      sev <- solution$value * 100
+    }
 
     # Plot data
     if(plot){
