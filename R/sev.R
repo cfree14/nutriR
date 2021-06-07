@@ -16,7 +16,7 @@
 #' @export
 sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
-  # EAR provided
+  # Is an EAR provided?
   if(is.na(ear) | is.na(cv)){
 
     sev <- NA
