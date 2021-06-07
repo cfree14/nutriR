@@ -1,4 +1,4 @@
-#' Calculate summary exposure value (SEV, % deficiency)
+#' Calculate summary exposure values
 #'
 #' This function calculates the summary exposure value (SEV), or percent deficiency, for a group based on its Estimated Average Requirement and its habitual intake distribution.
 #'
@@ -11,10 +11,10 @@
 #' @param plot Plot the distributions relative to the EAR? True/False
 #' @return The percent of a population deficient in a nutrient (SEV)
 #' @examples
-#' calc_sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
-#' calc_sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
+#' sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
+#' sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
 #' @export
-calc_sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
+sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
   # Which dist?
   dist <- ifelse(!is.null(shape), "gamma", "log-normal")
