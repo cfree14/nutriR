@@ -47,7 +47,7 @@ overlap <- function(dist1, dist2, plot=F){
   # Calculate Bhattacharyya coefficient (percent overlap in two distributions)
   # https://en.wikipedia.org/wiki/Bhattacharyya_distance
   bc_integral <- function(x){sqrt(dist1_func(x)*dist2_func(x))}
-  bc <- try(integrate(bc_integral, lower=0, upper=Inf, rel.tol = 1e-15))
+  bc <- try(integrate(bc_integral, lower=0, upper=Inf))
   if(inherits(bc, "try-error")){
     poverlap <- NA
     warning("Something went wrong with the integral. Returning NA for the percent overlap.")
