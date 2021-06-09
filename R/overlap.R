@@ -16,6 +16,10 @@
 #' @export
 overlap <- function(dist1, dist2, plot=F){
 
+  # An example where you get:
+  # "the integral is probably divergent"
+  # dist1 <- list(meanlog=7.60488, sdlog=0.4692323); dist2 <- list(meanlog=2.969439, sdlog=0.6529212); plot <- T
+
   # Build distribution 1
   dist1_type <- ifelse("shape" %in% names(dist1), "gamma", "log-normal")
   if(dist1_type=="gamma"){
@@ -43,8 +47,13 @@ overlap <- function(dist1, dist2, plot=F){
   # Calculate Bhattacharyya coefficient (percent overlap in two distributions)
   # https://en.wikipedia.org/wiki/Bhattacharyya_distance
   bc_integral <- function(x){sqrt(dist1_func(x)*dist2_func(x))}
-  bc <- integrate(bc_integral, lower=0, upper=Inf)
-  poverlap <- bc$value * 100
+  bc <- try(integrate(bc_integral, lower=0, upper=Inf, rel.tol = 1e-15))
+  if(inherits(bc, "try-error")){
+    poverlap <- NA
+    warning("Something went wrong with the integral. Returning NA for the percent overlap.")
+  }else{
+    poverlap <- bc$value * 100
+  }
 
   # If plotting
   if(plot==T){

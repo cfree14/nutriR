@@ -16,7 +16,7 @@
 #' @export
 sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
-  # An example with bad integrand behavior
+  # An example where you get "bad integrand behavior"
   # ear <- 10; cv <- 0.1; meanlog <- -36.92221; sdlog <- 46.77756; shape <- NULL
 
   # Is an EAR provided?
@@ -76,7 +76,7 @@ sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
       }
 
       # Plot distribution
-      plot(y ~ x, type="l")
+      plot(y ~ x, type="l", main=paste(round(sev, 1), "% deficient"))
       abline(v=ear, lty=2)
 
       # # Plot risk curve
