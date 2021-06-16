@@ -47,7 +47,7 @@ The package includes the following functions:
 Vigenette
 ---------
 
-A vignette illustrating the functionality of the nutriR package is available here: coming soon.
+A vignette illustrating the functionality of the "nutriR" package is available here: coming soon.
 
 Citation
 ------------
