@@ -23,4 +23,5 @@ This function calculates the skewness of a habitual intake distribution. It hand
 }
 \examples{
 skewness(shape=1, rate=0.5)
+skewness(meanlog=3, sdlog=1)
 }

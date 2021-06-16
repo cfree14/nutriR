@@ -23,4 +23,5 @@ This function calculates the kurtosis of a habitual intake distribution. It hand
 }
 \examples{
 kurtosis(shape=1, rate=0.5)
+kurtosis(meanlog=3, sdlog=1)
 }

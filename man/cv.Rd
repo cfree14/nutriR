@@ -23,4 +23,5 @@ This function calculates the coefficient of variation (CV) of a habitual intake 
 }
 \examples{
 cv(shape=1, rate=0.5)
+cv(meanlog=3, sdlog=1)
 }

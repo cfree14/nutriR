@@ -2,22 +2,22 @@
 % Please edit documentation in R/overlap.R
 \name{overlap}
 \alias{overlap}
-\title{Calculate the percent overlap between two nutrient intake distributions}
+\title{Calculate the percent overlap between two habitual intake distributions}
 \usage{
 overlap(dist1, dist2, plot = F)
 }
 \arguments{
-\item{dist1}{Named list with distribution parameters for distribution A}
+\item{dist1}{List containing the named distribution parameters for distribution A}
 
-\item{dist2}{Named list with distribution parameters for distribution B}
+\item{dist2}{List containing the named distribution parameters for distribution B}
 
-\item{plot}{Plot the distributions and overlap?}
+\item{plot}{Boolean (TRUE/FALSE) indicating whether to plot the distributions and overlap}
 }
 \value{
-The percent overlap
+The percent overlap in the two distributions
 }
 \description{
-This function calculates the percent overlap between two nutrient intake distributions. It can handle combinations of gamma and log-normal distributions. The percent overlap is calculated as the Bhattacharyya coefficient.
+This function calculates the percent overlap between two habitual intake distributions. It handles combinations of gamma and log-normal distributions. The percent overlap is calculated as the Bhattacharyya coefficient.
 }
 \examples{
 overlap(dist1=list(shape=2, rate=2), dist2=list(shape=2, rate=2), plot=T) # same distribution

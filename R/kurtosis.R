@@ -9,6 +9,7 @@
 #' @return The kurtosis of the distribution
 #' @examples
 #' kurtosis(shape=1, rate=0.5)
+#' kurtosis(meanlog=3, sdlog=1)
 #' @export
 kurtosis <- function(shape=NULL, rate=NULL, meanlog, sdlog=NULL){
 

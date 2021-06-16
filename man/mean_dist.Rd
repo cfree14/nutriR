@@ -23,4 +23,5 @@ This function calculates the mean of a habitual intake distribution. It handles 
 }
 \examples{
 mean_dist(shape=1, rate=0.5)
+mean_dist(meanlog=3, sdlog=1)
 }

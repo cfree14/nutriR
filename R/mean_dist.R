@@ -9,6 +9,7 @@
 #' @return The mean of the distribution
 #' @examples
 #' mean_dist(shape=1, rate=0.5)
+#' mean_dist(meanlog=3, sdlog=1)
 #' @export
 mean_dist <- function(shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL){
 

@@ -9,6 +9,7 @@
 #' @return The skewness of the distribution
 #' @examples
 #' skewness(shape=1, rate=0.5)
+#' skewness(meanlog=3, sdlog=1)
 #' @export
 skewness <- function(shape=NULL, rate=NULL, meanlog, sdlog=NULL){
 

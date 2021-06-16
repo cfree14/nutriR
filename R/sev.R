@@ -1,14 +1,14 @@
-#' Calculate summary exposure values
+#' Calculate summary exposure value
 #'
-#' This function calculates the summary exposure value (SEV), or percent deficiency, for a group based on its Estimated Average Requirement and its habitual intake distribution.
+#' This function calculates the summary exposure value (SEV), i.e., the percent deficiency, for a group based on its Estimated Average Requirement (EAR) and its habitual intake distribution. It uses the probability method. A CV of 0.25 is recommended for the EAR of Vitamin B12 and a CV of 0.10 is recommended for the EAR of all other nutrients.
 #'
 #' @param ear Estimated Average Requirement (EAR)
-#' @param cv Coefficient of variation (CV)
+#' @param cv Coefficient of variation (CV) of the EAR
 #' @param shape Shape parameter for gamma distribution
 #' @param rate Rate parameter for gamma distribution
 #' @param meanlog Mean parameter for gamma distribution
 #' @param sdlog Standard deviation parameter for gamma distribution
-#' @param plot Plot the distributions relative to the EAR? True/False
+#' @param plot Boolean (TRUE/FALSE) indicating whether to plot the distributions relative to the EAR
 #' @return The percent of a population deficient in a nutrient (SEV)
 #' @examples
 #' sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
@@ -16,7 +16,7 @@
 #' @export
 sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
-  # An example where you get "bad integrand behavior"
+  # Notes on an example where you get "bad integrand behavior"
   # ear <- 10; cv <- 0.1; meanlog <- -36.92221; sdlog <- 46.77756; shape <- NULL
 
   # Is an EAR provided?

@@ -9,6 +9,7 @@
 #' @return The variance of the distribution
 #' @examples
 #' variance(shape=1, rate=0.5)
+#' variance(meanlog=3, sdlog=1)
 #' @export
 variance <- function(shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL){
 

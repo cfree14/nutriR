@@ -2,7 +2,7 @@
 % Please edit documentation in R/shift_dists.R
 \name{shift_dist}
 \alias{shift_dist}
-\title{Shift mean of subnational nutrient intake distribution}
+\title{Shift the mean of a habitual intake distribution}
 \usage{
 shift_dist(
   shape = NULL,
@@ -33,7 +33,7 @@ shift_dist(
 A list with the parameters for the shifted distribution
 }
 \description{
-This function shifts the mean of subnational nutrient intake distribution and provides the new parameters for describing the shifted distribution.
+This function shifts the mean of a habitual intake distribution and provides the new parameters used to describe the shifted distribution.
 }
 \examples{
 # Shift distributions by an amount (2 and -3)

@@ -2,14 +2,14 @@
 % Please edit documentation in R/sev.R
 \name{sev}
 \alias{sev}
-\title{Calculate summary exposure values}
+\title{Calculate summary exposure value}
 \usage{
 sev(ear, cv, shape = NULL, rate = NULL, meanlog = NULL, sdlog = NULL, plot = F)
 }
 \arguments{
 \item{ear}{Estimated Average Requirement (EAR)}
 
-\item{cv}{Coefficient of variation (CV)}
+\item{cv}{Coefficient of variation (CV) of the EAR}
 
 \item{shape}{Shape parameter for gamma distribution}
 
@@ -19,13 +19,13 @@ sev(ear, cv, shape = NULL, rate = NULL, meanlog = NULL, sdlog = NULL, plot = F)
 
 \item{sdlog}{Standard deviation parameter for gamma distribution}
 
-\item{plot}{Plot the distributions relative to the EAR? True/False}
+\item{plot}{Boolean (TRUE/FALSE) indicating whether to plot the distributions relative to the EAR}
 }
 \value{
 The percent of a population deficient in a nutrient (SEV)
 }
 \description{
-This function calculates the summary exposure value (SEV), or percent deficiency, for a group based on its Estimated Average Requirement and its habitual intake distribution.
+This function calculates the summary exposure value (SEV), i.e., the percent deficiency, for a group based on its Estimated Average Requirement (EAR) and its habitual intake distribution. It uses the probability method. A CV of 0.25 is recommended for the EAR of Vitamin B12 and a CV of 0.10 is recommended for the EAR of all other nutrients.
 }
 \examples{
 sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)

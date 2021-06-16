@@ -1,6 +1,6 @@
-#' Shift mean of subnational nutrient intake distribution
+#' Shift the mean of a habitual intake distribution
 #'
-#' This function shifts the mean of subnational nutrient intake distribution and provides the new parameters for describing the shifted distribution.
+#' This function shifts the mean of a habitual intake distribution and provides the new parameters used to describe the shifted distribution.
 #'
 #' @param shape Shape parameter for gamma distribution
 #' @param rate Rate parameter for gamma distribution

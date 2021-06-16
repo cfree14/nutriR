@@ -1,11 +1,11 @@
-#' Calculate the percent overlap between two nutrient intake distributions
+#' Calculate the percent overlap between two habitual intake distributions
 #'
-#' This function calculates the percent overlap between two nutrient intake distributions. It can handle combinations of gamma and log-normal distributions. The percent overlap is calculated as the Bhattacharyya coefficient.
+#' This function calculates the percent overlap between two habitual intake distributions. It handles combinations of gamma and log-normal distributions. The percent overlap is calculated as the Bhattacharyya coefficient.
 #'
-#' @param dist1 Named list with distribution parameters for distribution A
-#' @param dist2 Named list with distribution parameters for distribution B
-#' @param plot Plot the distributions and overlap?
-#' @return The percent overlap
+#' @param dist1 List containing the named distribution parameters for distribution A
+#' @param dist2 List containing the named distribution parameters for distribution B
+#' @param plot Boolean (TRUE/FALSE) indicating whether to plot the distributions and overlap
+#' @return The percent overlap in the two distributions
 #' @examples
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=2, rate=2), plot=T) # same distribution
 #' overlap(dist1=list(shape=2, rate=2), dist2=list(shape=3, rate=2), plot=T) # slighly different

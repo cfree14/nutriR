@@ -9,6 +9,7 @@
 #' @return The coefficient of variation (CV) of the distribution
 #' @examples
 #' cv(shape=1, rate=0.5)
+#' cv(meanlog=3, sdlog=1)
 #' @export
 cv <- function(shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL){
 

@@ -23,4 +23,5 @@ This function calculates the variance of a habitual intake distribution. It hand
 }
 \examples{
 variance(shape=1, rate=0.5)
+variance(meanlog=3, sdlog=1)
 }
