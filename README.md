@@ -26,7 +26,7 @@ Datasets
 The package includes the following datasets:
 
 - Dietary reference intakes (DRIs): `?dris`
-- Subnational nutrient distribution parameters: `?dists`
+- Subnational habitual intake distribution parameters: `?dists`
 
 
 Functions
@@ -34,15 +34,15 @@ Functions
 
 The package includes the following functions:
 
-- Extract subnational nutrient distributions of interest: `?get_dists`
-- Plot subnational nutrient distributions of interest: `?plot_dists`
-- Generate subnational nutrient distributions for independent plotting: `?generate_dists`
-- Shift subnational nutrient distributions of interest: `?shift_dists`
+- Extract subnational intake distributions of interest: `?get_dists`
+- Plot subnational intake distributions of interest: `?plot_dists`
+- Generate subnational intake distributions for independent plotting: `?generate_dists`
+- Shift subnational intake distributions of interest: `?shift_dists`
 - Calculate nutrient deficiencies (summary exposure values): `?sev`
 - Calculate the mean of distributions: `?mean_dist`
-- Calculate the C.V. and variance of distributions: `?cv`, `?variance`
-- Calculate the skewness and kurtosis of distributions: `?skewness`, `?kurtosis`
-- Calculate percent overlap (Bhattacharyya coefficient) of distributions: `?overlap`
+- Calculate the C.V. and variance of intake distributions: `?cv`, `?variance`
+- Calculate the skewness and kurtosis of intake distributions: `?skewness`, `?kurtosis`
+- Calculate percent overlap (Bhattacharyya coefficient) between intake distributions: `?overlap`
 
 
 Citation
