@@ -27,7 +27,7 @@ shift_dist(
 
 \item{to}{New mean to shift the current mean to}
 
-\item{plot}{Plot the current/shifted distributions? True/False}
+\item{plot}{Boolean (TRUE/FALSE) indicating whether to plot the current/shifted distributions}
 }
 \value{
 A list with the parameters for the shifted distribution
@@ -36,11 +36,19 @@ A list with the parameters for the shifted distribution
 This function shifts the mean of a habitual intake distribution and provides the new parameters used to describe the shifted distribution.
 }
 \examples{
-# Shift distributions by an amount (2 and -3)
+# Shift gamma distribution by an amount (2 and -3)
 shift_dist(shape=9.7, rate=1.25, by=2, plot=T)
 shift_dist(shape=9.7, rate=1.25, by=-3, plot=T)
 
-# Shift distributions to a new mean (10 or 4)
+# Shift gamma distribution to a new mean (10 or 4)
 shift_dist(shape=9.7, rate=1.25, to=10, plot=T)
 shift_dist(shape=9.7, rate=1.25, to=4, plot=T)
+
+Shift log-normal distribution by an amount (10 and =5)
+shift_dist(meanlog=3, sdlog=0.5, by=10, plot=T)
+shift_dist(meanlog=3, sdlog=0.5, by=-5, plot=T)
+
+Shift log-normal distribution to a new mean (35 and 15)
+shift_dist(meanlog=3, sdlog=0.5, to=35, plot=T)
+shift_dist(meanlog=3, sdlog=0.5, to=15, plot=T)
 }
