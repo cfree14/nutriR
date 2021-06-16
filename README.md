@@ -38,8 +38,10 @@ The package includes the following functions:
 - Plot subnational nutrient distributions of interest: `?plot_dists`
 - Generate subnational nutrient distributions for independent plotting: `?generate_dists`
 - Shift subnational nutrient distributions of interest: `?shift_dists`
+- Calculate nutrient deficiencies (summary exposure values): `?sev`
 - Calculate the mean of distributions: `?mean_dist`
-- Calculate the C.V., variance, skewness, and kurtosis of distributions: `?cv`, `?variance`, `?skewness`, `?kurtosis`
+- Calculate the C.V. and variance of distributions: `?cv`, `?variance`
+- Calculate the skewness and kurtosis of distributions: `?skewness`, `?kurtosis`
 - Calculate percent overlap (Bhattacharyya coefficient) of distributions: `?overlap`
 
 
