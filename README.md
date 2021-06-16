@@ -39,7 +39,7 @@ The package includes the following functions:
 - Generate subnational intake distributions for independent plotting: `?generate_dists`
 - Shift subnational intake distributions of interest: `?shift_dists`
 - Calculate summary exposure values (SEVs; a.k.a., nutrient deficiencies): `?sev`
-- Calculate the mean of distributions: `?mean_dist`
+- Calculate the mean of intake distributions: `?mean_dist`
 - Calculate the coefficient of variation (CV) and variance of intake distributions: `?cv`, `?variance`
 - Calculate the skewness and kurtosis of intake distributions: `?skewness`, `?kurtosis`
 - Calculate percent overlap (Bhattacharyya coefficient) between intake distributions: `?overlap`
