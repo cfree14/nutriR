@@ -16,6 +16,7 @@ A data frame with the following attributes::
   \item{stage}{Life stage (i.e., infants, children, pregnancy, lactation, none)}
   \item{age_range}{Age range}
   \item{dri_type}{Dietary reference intake type (i.e., EAR, AI, RDA, UL)}
+  \item{value}{DRI value}
   \item{footnote}{Footnote}
 }
 }

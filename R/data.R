@@ -15,6 +15,7 @@
 #'   \item{stage}{Life stage (i.e., infants, children, pregnancy, lactation, none)}
 #'   \item{age_range}{Age range}
 #'   \item{dri_type}{Dietary reference intake type (i.e., EAR, AI, RDA, UL)}
+#'   \item{value}{DRI value}
 #'   \item{footnote}{Footnote}
 #' }
 #' @source Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020). Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.

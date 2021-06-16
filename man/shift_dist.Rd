@@ -44,11 +44,11 @@ shift_dist(shape=9.7, rate=1.25, by=-3, plot=T)
 shift_dist(shape=9.7, rate=1.25, to=10, plot=T)
 shift_dist(shape=9.7, rate=1.25, to=4, plot=T)
 
-Shift log-normal distribution by an amount (10 and =5)
+# Shift log-normal distribution by an amount (10 and -5)
 shift_dist(meanlog=3, sdlog=0.5, by=10, plot=T)
 shift_dist(meanlog=3, sdlog=0.5, by=-5, plot=T)
 
-Shift log-normal distribution to a new mean (35 and 15)
+# Shift log-normal distribution to a new mean (35 and 15)
 shift_dist(meanlog=3, sdlog=0.5, to=35, plot=T)
 shift_dist(meanlog=3, sdlog=0.5, to=15, plot=T)
 }

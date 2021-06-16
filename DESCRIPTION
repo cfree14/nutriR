@@ -4,10 +4,14 @@ Title: Nutritional intake functions for R
 Version: 0.1.0
 Author: Christopher Free
 Maintainer: Christopher Free <cfree14@gmail.com>
-Description: Nutritional intake functions for R
-License: What license is it under?
+Description: This package provides the subnational habitual intake distributions estimated in Passarelli et al. (in prep) as well as a number of functions for analyzing and using subnational intake distributions.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
 RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
