@@ -44,6 +44,10 @@ The package includes the following functions:
 - Calculate the skewness and kurtosis of intake distributions: `?skewness`, `?kurtosis`
 - Calculate percent overlap (Bhattacharyya coefficient) between intake distributions: `?overlap`
 
+Vigenette
+---------
+
+A vignette illustrating the functionality of the nutriR package is available here: coming soon.
 
 Citation
 ------------
