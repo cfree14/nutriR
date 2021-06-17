@@ -62,7 +62,8 @@ get_dists <- function(nutrients=NULL, isos=NULL, sexes=NULL, ages=NULL) {
   # Extract distributions of interest
   dists_use <- dists_full %>%
     # Filter data
-    filter(nutrient %in% nutrients_do & iso3 %in% isos_do & sex %in% sexes_do & age_group %in% ages_groups_do)
+    filter(nutrient %in% nutrients_do & iso3 %in% isos_do & sex %in% sexes_do & age_group %in% ages_groups_do) %>%
+    filter(best_dist!="none")
 
   # Return
   return(dists_use)

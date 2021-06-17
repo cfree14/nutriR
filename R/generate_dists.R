@@ -5,7 +5,7 @@
 #' @param dists A data frame of nutrient distributions
 #' @return A dataframe
 #' @examples
-#' dists <- nutriR::get_dists(isos=c("USA", "GHA"), nutrients=c("Iron"), sexes="MF", ages=20:40)
+#' dists <- nutriR::get_dists(isos=c("USA", "BGD"), nutrients=c("Iron"), sexes="MF", ages=20:40)
 #' dists_sim <- nutriR::generate_dists(dists)
 #' @export
 generate_dists <- function(dists){

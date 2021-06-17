@@ -15,3 +15,20 @@ A plot
 \description{
 This function prepares a quick plot comparing subnational nutrient intake distributions. It is provided a dataframe generated from the get_dists() function.
 }
+\examples{
+# A one nutrient example
+dists_usa_iron <- get_dists(isos="USA", nutrients="Iron")
+plot_dists(dists_usa_iron)
+
+# A two nutrient example
+dists_usa_iron_vitB <- get_dists(isos="USA", nutrients=c("Iron", "Vitamin B12"))
+plot_dists(dists_usa_iron_vitB)
+
+# A two nutrient-two country example
+dists_usa_bgd_iron_vitB <- get_dists(isos=c("USA", "BGD"), nutrients=c("Iron", "Vitamin B12"))
+plot_dists(dists_usa_bgd_iron_vitB)
+
+A whole countries data
+dists_bfa <- get_dists(isos=c("BFA"))
+plot_dists(dists_bfa)
+}

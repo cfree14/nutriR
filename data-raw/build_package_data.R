@@ -7,17 +7,11 @@ library(countrycode)
 #####################################################################################
 
 # Read distributions
-dists_full_orig <- readRDS("/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/Health-Benefit-Calculation-BFA/data/intakes/output/intake_distributions_for_all_cosimo_countries.Rds")
-
-# Format data
-dists_full <- dists_full_orig %>%
-  # Rename
-  rename(country=country_name, iso3=country_iso3) %>%
-  # Arrange
-  select(iso3, country, everything())
+dists_full <- readRDS("/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnational_nutrient_distributions/data/nutrient_intake_distributions_22countries_expanded.Rds") %>%
+  filter(best_dist!="none")
 
 # Save for internal use
-usethis::use_data(dists_full, internal = TRUE, overwrite = T)
+usethis::use_data(dists_full, overwrite = T)
 
 # External data
 #####################################################################################

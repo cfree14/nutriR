@@ -20,3 +20,52 @@
 #' }
 #' @source Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020). Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.
 "dris"
+
+#' Subnational habitual nutrient intake distributions
+#'
+#' This dataset contains the subnational habitual nutrient intake distributions estimated by Passarelli et al. (in prep).
+#'
+#' @format A data frame with the following attributes::
+#' \describe{
+#'   \item{country}{Country name}
+#'   \item{iso3}{ISO3 code for country}
+#'   \item{nutrient_type}{Type of nutrient (i.e., macronutrient, vitamin, element)}
+#'   \item{nutrient}{Nutrient name}
+#'   \item{nutrient_units}{Nutrient name and units}
+#'   \item{sex}{Sex (i.e., males, females, both)}
+#'   \item{age_group}{Age group (5-yr intervals)}
+#'   \item{sex_ear}{Sex used to assign EAR value}
+#'   \item{age_group_ear}{Age group used to assign EAR value}
+#'   \item{ear_units}{EAR units}
+#'   \item{ear_cv}{Recommended coefficient of variation (CV) for the EAR value}
+#'   \item{ear}{EAR value}
+#'   \item{ear_lact}{EAR value for lactating women}
+#'   \item{ear_preg}{EAR value for pregnant women}
+#'   \item{g_shape}{Shape parameter for a gamma-distributed intake distribution}
+#'   \item{g_rate}{Rate parameter for a gamma-distributed intake distribution}
+#'   \item{g_ks}{K-S goodness-of-fit for a gamma-distributed intake distribution}
+#'   \item{g_mu}{Mean of a gamma-distributed intake distribution}
+#'   \item{g_cv}{Coefficient of variation (CV) of a gamma-distributed intake distribution}
+#'   \item{g_var}{Variance a gamma-distributed intake distribution}
+#'   \item{g_skew}{Skewness of a gamma-distributed intake distribution}
+#'   \item{g_kurt}{Kurtosis of a gamma-distributed intake distribution}
+#'   \item{g_sev}{Summary exposure value (SEV) of a gamma-distributed intake distribution}
+#'   \item{ln_meanlog}{Meanlog parameter for a lognormally-distributed intake distribution}
+#'   \item{ln_sdlog}{Sdlog parameter for a lognormally-distributed intake distribution}
+#'   \item{ln_ks}{K-S goodness-of-fit for a lognormally-distributed intake distribution}
+#'   \item{ln_mu}{Mean of a lognormally-distributed intake distribution}
+#'   \item{ln_cv}{Coefficient of variation (CV) of a lognormally-distributed intake distribution}
+#'   \item{ln_var}{Variance a lognormally-distributed intake distribution}
+#'   \item{ln_skew}{Skewness of a lognormally-distributed intake distribution}
+#'   \item{ln_kurt}{Kurtosis of a lognormally-distributed intake distribution}
+#'   \item{ln_sev}{Summary exposure value (SEV) of a lognormally-distributed intake distribution}
+#'   \item{best_dist}{Best distribution based on the K-S goodness-of-fit statistic}
+#'   \item{mu}{Mean of the best intake distribution}
+#'   \item{cv}{Coefficient of variation (CV) of the best intake distribution}
+#'   \item{var}{Variance the best intake distribution}
+#'   \item{skew}{Skewness of the best intake distribution}
+#'   \item{kurt}{Kurtosis of the best intake distribution}
+#'   \item{sev}{Summary exposure value (SEV) of the best intake distribution}
+#' }
+#' @source Passarelli S, Free CM, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD (in prep) Global modeling of subnational habitual nutrient intake distributions. Near submission.
+"dists_full"
