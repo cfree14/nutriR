@@ -26,7 +26,7 @@ Datasets
 The package includes the following datasets:
 
 - Dietary reference intakes (DRIs): `?dris`
-- Subnational habitual intake distribution parameters: `?dists`
+- Subnational habitual intake distribution parameters: `?dists_full`
 
 
 Functions
