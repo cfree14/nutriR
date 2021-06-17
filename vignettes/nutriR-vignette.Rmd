@@ -1,0 +1,191 @@
+---
+title: "A brief guide to using the nutriR package"
+author: "Christopher Free"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{A brief guide to using the nutriR package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## 1. Installation
+
+Let's begin by loading the nutriR package and its dependencies.
+
+```{r setup}
+# Packages
+library(nutriR)
+library(tidyverse)
+```
+
+
+## 2. Extracting habitual intake distributions
+
+If you want to get the full dataset developed by Passarelli et al. (in prep), you can do either of the following:
+
+```{r results = "hide"}
+nutriR::dists_full
+nutriR::get_dists()
+```
+
+If you want to retrieve a subset of the data, you can filter the dataset yourself or you can use the get_dists() function to specify intake distributions for your countries, nutrients, and sex-age groups of interest. A few examples are provided below:
+
+```{r results = "hide"}
+# All USA data
+get_dists(isos="USA")
+
+# All USA Vitamin B6/B12 data
+get_dists(isos="USA", nutrients=c("Vitamin B6", "Vitamin B12"))
+
+# All USA Vitamin B6/B12 data for women ages 20 to 40
+get_dists(isos="USA", nutrients=c("Vitamin B6", "Vitamin B12"), sexes = "F", ages = 20:40)
+```
+
+In this vignette, we're going to compare habitual iron intakes in the USA and Bangladesh and calculate the magnitude of diet shifts required to reduce iron deficiencies in both locations. To begin, we'll use the get_dists function to retrieve habitual intake distributions for both countries.
+
+```{r}
+dists <- get_dists(isos=c("USA", "BGD"), nutrient="Iron")
+```
+
+
+## 3. Visualizing habitual intake distributions
+
+To quickly plot and compare the habitual intake distributions in this dataset, you can use the plot_dists function:
+
+```{r fig.width = 5}
+plot_dists(dists=dists)
+```
+
+From this quick visualization, we see a few things: (1) intakes are available for men and women in the US but are only available for women in Bangladesh; (2) habitual iron intakes strongly decrease with age in Bangladesh; and (3) men have higher but also more variable habitual intakes than women in the US.
+
+The plot_dists function provides a quick method for understanding the distributions but you might be interest in tweaking the plots for your own work. To create custom plots of the habitual intake distributions, you can either extract the parameters for the best distribution and generate the curves yourself, or you can use the generate_dists function to build the curves and build your own plot. An example is shown below:
+
+```{r fig.width = 5}
+# Generate data for plotting
+dist_data <- generate_dists(dists=dists)
+
+# Create your own plot using this data
+ggplot(dist_data %>% filter(country=="United States"), mapping=aes(x=intake, y=density, color=age_group)) +
+  facet_wrap(~sex) +
+  geom_line() +
+  labs(x="Habitual intake (mg/day)", y="Density", title="Habitual iron intake in the United States") +
+  scale_color_ordinal(name="Age group") +
+  theme_bw()
+```
+
+
+## 4. Measuring properties of habitual intake distributions
+
+The shape of the habitual nutrient intake distributions can have important implications for the health of a subnational population. Thus, we have included functions for calculating the following properties of habitual intake distributions:
+
+* Mean
+* Variance
+* Coefficient of variation (CV)
+* Skewness
+* Kurtosis
+
+An example is show below where we measure and compare values for 20-25 yr women in Bangladesh versus the United States. Both distributions are best described by a gamma distribution so we use the gamma distribution shape and rate parameters to describe the properties of the intake distributions.
+
+```{r}
+# Get parameters for describing the habitual iron intake by 15-19 yr women in Bangladesh
+bdg <- dists %>%
+  filter(country=="Bangladesh" & sex=="Females" & age_group=="15-19")
+bdg$best_dist
+shape_bdg <- bdg$g_shape
+rate_bdg <- bdg$g_rate
+
+# Get parameters for describing the habitual iron intake by 15-19 yr women in United States
+usa <- dists %>%
+  filter(country=="United States" & sex=="Females" & age_group=="15-19")
+usa$best_dist
+shape_usa <- usa$g_shape
+rate_usa <- usa$g_rate
+
+# Compare means (~4 mg/day higher in USA)
+mean_dist(shape=shape_bdg, rate=rate_bdg)
+mean_dist(shape=shape_usa, rate=rate_usa)
+
+# Compare variance
+variance(shape=shape_bdg, rate=rate_bdg)
+variance(shape=shape_usa, rate=rate_usa)
+
+# Compare CV
+cv(shape=shape_bdg, rate=rate_bdg)
+cv(shape=shape_usa, rate=rate_usa)
+
+# Compare skewness
+skewness(shape=shape_bdg, rate=rate_bdg)
+skewness(shape=shape_usa, rate=rate_usa)
+
+# Compare kurtosis
+kurtosis(shape=shape_bdg, rate=rate_bdg)
+kurtosis(shape=shape_usa, rate=rate_usa)
+```
+
+We can also measure the similarity between the two distributions as the percent overlap between the distribution. In this case, we calculate percent overlap using the equations for the Bhattacharyya coefficient.
+
+```{r fig.width = 5}
+overlap(dist1=list(shape=shape_usa, rate=rate_usa),
+        dist2=list(shape=shape_bdg, rate=rate_bdg),
+        plot=T)
+```
+
+
+## 5. Quantifying nutrient deficiencies
+
+We can use Estimated Average Requirements (EARs) and the probability method to calculate the nutrient deficiency associated with each of these distributions. This measure of nutrient deficiency is known as the summary exposure value (SEV).
+
+To begin, we have to look up the EAR for 15-19-yr-old women. We have provided EARs and other types of Dietary Reference Intake (DRI) values directly in the R package. We can extract the EARs from this dataset
+
+```{r}
+?dris
+women15_iron_ear <- dris %>%
+  filter(dri_type=="Estimated Average Requirement (EAR)" & nutrient=="Iron" & sex_stage=="Women" & age_range=="14-18 yr") %>%
+  pull(value)
+women15_iron_ear
+```
+
+The EAR for iron for 15-19-yr-old women is 7.9. We can calculate and compare iron deficiences in the USA and Bangladesh using the sev() function as follows:
+
+```{r fig.width = 3.5}
+sev(ear=women15_iron_ear, cv=0.1, shape=shape_bdg, rate=rate_bdg, plot=T)
+sev(ear=women15_iron_ear, cv=0.1, shape=shape_usa, rate=rate_usa, plot=T)
+```
+
+
+## 6. Shifting distributions in response to an intervention
+
+Finally, we can use the shift_dist() function to shift the mean of habitual intake distributions while maintaining their coefficient of variation (CV) to see how different interventions might change health outcomes. For example, we can see how shifting the mean of the habitual intake for 15-19-yr-old women in Bangladesh by 2 mg/day would effect nutrient deficincies.
+
+```{r}
+# Shift distribution by 2 mg/day
+dist_bgd_shifted <- shift_dist(shape=shape_bdg, rate=rate_bdg, by=2, plot=T)
+
+# What are the health benefits? Decrease from 48% deficient to 25% deficient
+sev(ear=women15_iron_ear, cv=0.1, shape=dist_bgd_shifted$shape, rate=dist_bgd_shifted$rate, plot=T)
+
+# Shift distribution to 14 mg/day
+dist_bgd_shifted2 <- shift_dist(shape=shape_bdg, rate=rate_bdg, to=14, plot=T)
+
+# What are the health benefits? Decrease from 48% deficient to 6% deficient
+sev(ear=women15_iron_ear, cv=0.1, shape=dist_bgd_shifted2$shape, rate=dist_bgd_shifted2$rate, plot=T)
+```
+
+
+## 7. Citing the nutriR package
+
+Please cite the R package functions as:
+
+* Free CM, Passarelli S, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
+
+Please cite the data served in the R package as:
+
+* Passarelli S, Free CM, Shepon A, Lee C, Moursi M, Cao L, Li Y, Crispim S, Schmidhuber J, Bromage S, Beal T, Golden CD (in prep) Global modeling of subnational habitual nutrient intake distributions. In prep.
+

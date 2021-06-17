@@ -75,8 +75,8 @@ overlap <- function(dist1, dist2, plot=F){
     # Simulate values
     y1 <- dist1_func(x=x)
     y2 <- dist2_func(x=x)
-    dist1_label <- paste(names(dist1), unlist(dist1), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 1", ., sep="\n")
-    dist2_label <- paste(names(dist2), unlist(dist2), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 2", ., sep="\n")
+    dist1_label <- paste(names(dist1), unlist(dist1) %>% round(., 2), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 1", ., sep="\n")
+    dist2_label <- paste(names(dist2), unlist(dist2) %>% round(., 2), sep="=") %>% paste(., collapse=", ") %>% paste("Distribution 2", ., sep="\n")
     df1 <- tibble(dist=dist1_label, x=x, y=y1)
     df2 <- tibble(dist=dist2_label, x=x, y=y2)
     df <- bind_rows(df1, df2)

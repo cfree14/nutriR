@@ -28,7 +28,7 @@ plot_dists(dists_usa_iron_vitB)
 dists_usa_bgd_iron_vitB <- get_dists(isos=c("USA", "BGD"), nutrients=c("Iron", "Vitamin B12"))
 plot_dists(dists_usa_bgd_iron_vitB)
 
-A whole countries data
+# A whole countries data
 dists_bfa <- get_dists(isos=c("BFA"))
 plot_dists(dists_bfa)
 }
