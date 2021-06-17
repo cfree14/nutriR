@@ -47,7 +47,8 @@ The package includes the following functions:
 Vigenette
 ---------
 
-A vignette illustrating the functionality of the "nutriR" package is available here: https://marine.rutgers.edu/~cfree/wp-content/uploads/nutriR-vignette.html
+A vignette illustrating the functionality of the "nutriR" package is available here: 
+https://marine.rutgers.edu/~cfree/wp-content/uploads/nutriR-vignette.html
 
 Citation
 ------------
