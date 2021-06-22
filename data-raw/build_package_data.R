@@ -3,7 +3,7 @@
 library(tidyverse)
 library(countrycode)
 
-# Internal data
+# Our data
 #####################################################################################
 
 # Read distributions
@@ -13,9 +13,13 @@ dists_full <- readRDS("/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnat
 # Save for internal use
 usethis::use_data(dists_full, overwrite = T)
 
-# External data
+# Other data
 #####################################################################################
 
 # Read RDIs
 dris <- readRDS("/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/nutrient_endowment/data/ears/data/dietary_reference_intake_data.Rds")
 usethis::use_data(dris, overwrite = T)
+
+# Read NRVs
+nrvs <- readRDS("/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnational_nutrient_distributions/data/dris/processed/Allen_etal_2020_nrvs.Rds")
+usethis::use_data(nrvs, overwrite = T)

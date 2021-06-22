@@ -21,6 +21,25 @@
 #' @source Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020). Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.
 "dris"
 
+#' Nutrient Reference Values (NRVs)
+#'
+#' This dataset provides the Nutrient Reference Values (NRVs) from Allen et al. (2020). Allen et al. (2020) selects values from the EFSA (European Food Safety Authority) and the Institute of Medicine (IOM) for average requirements (ARs) and upper levels of intake (ULs).
+#'
+#' @format A data frame with the following attributes::
+#' \describe{
+#'   \item{nutrient}{Nutrient name}
+#'   \item{units}{Nutrient units (e.g., g/d, mg/d, µg/d)}
+#'   \item{source}{Source (i.e., EFSA, IOM)}
+#'   \item{sex}{Sex (i.e., males, females, both)}
+#'   \item{stage}{Life stage (i.e., infants, children, pregnancy, lactation, none)}
+#'   \item{age_group}{Age range}
+#'   \item{nrv_type}{Nutrient reference value type (i.e., AR UL)}
+#'   \item{nrv}{DRI value}
+#'   \item{nrv_note}{A note}
+#' }
+#' @source Allen, L.H., Carriquiry, A.L., Murphy, S.P. (2020) Perspective: proposed harmonized nutrient reference values for populations. Advances in Nutrition 11(3): 469-483.
+"nrvs"
+
 #' Subnational habitual nutrient intake distributions
 #'
 #' This dataset contains the subnational habitual nutrient intake distributions estimated by Passarelli et al. (in prep).

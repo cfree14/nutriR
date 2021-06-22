@@ -154,7 +154,7 @@ women15_iron_ear
 
 The EAR for iron for 15-19-yr-old women is 7.9 mg/day. We can calculate and compare inadequate iron intakes in the USA and Bangladesh using the `?sev()` function as follows:
 
-```{r fig.width = 3.5}
+```{r fig.width=5}
 sev(ear=women15_iron_ear, cv=0.1, shape=shape_bdg, rate=rate_bdg, plot=T)
 sev(ear=women15_iron_ear, cv=0.1, shape=shape_usa, rate=rate_usa, plot=T)
 ```
