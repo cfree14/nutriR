@@ -75,9 +75,27 @@ sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
         y <- dlnorm(x, meanlog=meanlog, sdlog=sdlog)
       }
 
-      # Plot distribution
-      plot(y ~ x, type="l", main=paste(round(sev, 1), "% deficient"))
-      abline(v=ear, lty=2)
+      # Merge
+      df <- tibble(intake=x,
+                   density=y)
+
+      # Plot distributon
+      g <- ggplot(df, mapping=aes(x=intake, y=density)) +
+        geom_line() +
+        # Labels
+        labs(x="Habitual intake", y="Density",
+             title=paste0(round(sev, 1), "% of population with inadequate intake")) +
+        # Plot EAR
+        geom_vline(xintercept=ear, linetype="dotted") +
+        annotate("text", x=ear, y=max(df$density), label=ear, hjust=-0.4) +
+        # Theme
+        theme_bw() +
+        theme(# Gridlines
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.background = element_blank(),
+          axis.line = element_line(colour = "black"))
+      print(g)
 
       # # Plot risk curve
       # y2 <- 1 - pnorm(x, mean=ear, sd=ear*cv)
