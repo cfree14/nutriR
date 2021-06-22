@@ -25,9 +25,13 @@ Datasets
 
 The package includes the following datasets:
 
-- Dietary reference intakes (DRIs): `?dris`
-- Subnational habitual intake distribution parameters: `?dists_full`
+- Dietary reference intakes (DRIs) from NAS (2020): `?dris`
+- Nutrient reference values (NRVs) from Allen et al. (2020): `?nrvs`
+- Subnational habitual intake distribution parameters from Passarelli et al. (in prep): `?dists_full`
 
+Allen, L.H., Carriquiry, A.L., Murphy, S.P. (2020) Perspective: proposed harmonized nutrient reference values for populations. Advances in Nutrition 11(3): 469-483.
+
+Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020) Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.
 
 Functions
 ---------
