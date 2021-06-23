@@ -142,12 +142,12 @@ overlap(dist1=list(shape=shape_usa, rate=rate_usa),
 
 We can use Estimated Average Requirements (EARs) and the probability method (NRC 1986) to calculate the prevalence of inadequate nutrient intakes associated with each of these distributions. This measure of inadequate intake prevalence is often known as the summary exposure value (SEV).
 
-### Looking up Dietary Reference Intake (DRI) values
+### Looking up dietary reference values
 
 The first step to estimating the prevalence of inadequate intakes is to determine the appropriate reference value. To make this step easy, we provide two databases of dietary reference values directly inside the R package:
 
-1. Dietary reference intakes (DRIs) from NAS (2020): ?dris
-2. Nutrient reference values (NRVs) from Allen et al. (2020): ?nrvs
+1. Dietary reference intakes (DRIs) from NAS (2020): `?dris`
+2. Nutrient reference values (NRVs) from Allen et al. (2020): `?nrvs`
 
 We can use these databases to look up the EAR for iron for 15-19-yr-old women. Because the EAR for iron depends on the level of bioavailabiliy, we will extract different EARs for the USA and Bangladesh.
 
