@@ -68,7 +68,9 @@ shift_dist <- function(shape=NULL, rate=NULL,
 
     # Simulate data
     if(dist_do=="gamma"){
-      xmax <- qgamma(p=0.9999, shape=shape, rate=rate)
+      xmax1 <- qgamma(p=0.9999, shape=shape, rate=rate)
+      xmax2 <- qgamma(p=0.9999, shape=shape2, rate=rate2)
+      xmax <- pmax(xmax1, xmax2)
       x <- seq(0, xmax, length.out = 200)
       y1 <- dgamma(x, shape=shape, rate=rate)
       y2 <- dgamma(x, shape=shape2, rate=rate2)
@@ -76,7 +78,9 @@ shift_dist <- function(shape=NULL, rate=NULL,
       mean2_dens = dgamma(mean2, shape=shape2, rate=rate2)
     }
     if(dist_do=="log-normal"){
-      xmax <- qlnorm(p=0.9999, meanlog = meanlog, sdlog=sdlog)
+      xmax1 <- qlnorm(p=0.9999, meanlog = meanlog, sdlog=sdlog)
+      xmax2 <- qlnorm(p=0.9999, meanlog = meanlog2, sdlog=sdlog2)
+      xmax <- pmax(xmax1, xmax2)
       x <- seq(0, xmax, length.out = 200)
       y1 <- dlnorm(x, meanlog=meanlog, sdlog=sdlog)
       y2 <- dlnorm(x, meanlog=meanlog2, sdlog=sdlog2)
