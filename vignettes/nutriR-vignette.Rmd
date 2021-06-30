@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ## 1. Installation
 
-Let's begin by loading the nutriR package and its dependencies.
+Let's begin by loading the nutriR package and its dependencies (make sure the 'tidyverse' package is installed and loaded).
 
 ```{r setup}
 # Packages
