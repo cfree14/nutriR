@@ -11,7 +11,7 @@ The "nutriR" R package can be installed from GitHub with:
 install.packages("devtools")
 
 # Run once devtools is successfully installed
-devtools::install_github("cfree14/nutriR", force=T)
+devtools::install_github("cfree14/nutriR", force=T, build_vignettes=T)
 library(nutriR)
 ```
 
