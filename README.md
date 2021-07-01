@@ -42,7 +42,8 @@ The package includes the following functions:
 - Plot subnational intake distributions of interest: `?plot_dists`
 - Generate subnational intake distributions for independent plotting: `?generate_dists`
 - Shift subnational intake distributions of interest: `?shift_dists`
-- Calculate summary exposure values (SEVs; a.k.a., nutrient deficiencies): `?sev`
+- Calculate the prevalence of inadequate nutrient intakes (SEVs): `?sev`
+- Calculate the shift required to obtain a target prevalence of inadequate intake: `?shift_req`
 - Calculate the mean of intake distributions: `?mean_dist`
 - Calculate the coefficient of variation (CV) and variance of intake distributions: `?cv`, `?variance`
 - Calculate the skewness and kurtosis of intake distributions: `?skewness`, `?kurtosis`
