@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 Let's begin by loading the nutriR package and its dependencies (make sure the 'tidyverse' package is installed and loaded).
 
-```{r setup}
+```{r setup, results = "hide"}
 # Packages
 library(nutriR)
 library(tidyverse)
@@ -175,7 +175,7 @@ Because of the low bioavailability of iron in Bangladesh, we see a much higher E
 
 We remind the user that not every person in a population has the same recommended intake and that calculating the prevalence of inadequate intakes requires accounting for this variability. We recommend using a coefficient of variation (CV) of 0.25 for the EAR for Vitamin B12 and a CV of 0.10 for the EARs of all other nutrients (Renwick et al. 2004). However, in the calculations below, you'll see that you can specify whatever CV you deem appropriate.
 
-### Permforning the prevalence of inadequate intake calculation
+### Performing the prevalence of inadequate intake calculation
 
 We can calculate and compare inadequate iron intakes in the USA and Bangladesh using the `?sev()` function as follows:
 
@@ -215,7 +215,28 @@ sev(ear=bgd_women15_iron_ear, cv=0.1, shape=dist_bgd_shifted2$shape, rate=dist_b
 ```
 
 
-## 7. Citing the nutriR package
+## 7. Calculating the shift required to obtain a target level of nutrient inadequacy
+
+We can use the `?shift_req()` function to calculate the magnitude of the shift required to achieve a user-specified level of inadequate intake within a population. The function also provides the parameters for describing this new distribution.
+
+For example, we can use this function to ask, how much does the habitual iron intake distribution for 15-19-yr-old women in the U.S. need to shift to have only a 5% prevalence of inadequate iron intakes:
+
+```{r fig.width=5}
+# Shift required to achieve 5% prevealence of inadequate intakes in 15-19 yr women in United States
+shift_req(ear=usa_women15_iron_ear, cv=0.1, target=5, shape=shape_usa, rate=rate_usa, plot=T)
+```
+The function outputs a list of the parameters describing the shifted distribution and provides a plot illustrating the impact of the shift. The mean would have to shift to 13.1 mg/day of iron to result in a 5% prevalence of inadequate intakes.
+
+As another example, we can ask how much does the habitual iron intake distribution for 15-19-yr-old women in the U.S. need to shift to have a 25% prevalence of inadequate iron intakes:
+
+```{r fig.width=5}
+# Shift required to achieve 25% prevealence of inadequate intakes in 15-19 yr women in Bangladesh
+shift_req(ear=bgd_women15_iron_ear, cv=0.1, target=25, shape=shape_bdg, rate=rate_bdg, plot=T)
+```
+In this case, the mean would have to shift to 29 mg/day of iron to result in a 25% prevalence of inadequate intakes.
+
+
+## 8. Citing the nutriR package
 
 Please cite the R package functions as:
 
@@ -226,7 +247,7 @@ Please cite the data served in the R package as:
 * Passarelli S, Free CM, Beal T, Batis Reuvalcaba C, Berger N, Bromage S, Cao L, Castellanos-Guitiérrez A, Crispim S, Shepon A, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J, Gicevic S, Golden CD (in prep) Global modeling of subnational habitual nutrient intake distributions. In prep.
 
 
-## 8. References
+## 9. References
 
 Allen, L.H., Carriquiry, A.L., Murphy, S.P. (2020) Perspective: proposed harmonized nutrient reference values for populations. Advances in Nutrition 11(3): 469-483.
 
