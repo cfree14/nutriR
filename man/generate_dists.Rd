@@ -4,10 +4,12 @@
 \alias{generate_dists}
 \title{Generate subnational nutrient intake distributions}
 \usage{
-generate_dists(dists)
+generate_dists(dists, perc = 0.9999)
 }
 \arguments{
 \item{dists}{A data frame of nutrient distributions}
+
+\item{perc}{The maximum percentile to draw to}
 }
 \value{
 A dataframe

@@ -3,12 +3,13 @@
 #' This function generates data for plotting subnational nutrient intake distributions. It is provided a dataframe generated from the get_dists() function.
 #'
 #' @param dists A data frame of nutrient distributions
+#' @param perc The maximum percentile to draw to
 #' @return A dataframe
 #' @examples
 #' dists <- nutriR::get_dists(isos=c("USA", "BGD"), nutrients=c("Iron"), sexes="MF", ages=20:40)
 #' dists_sim <- nutriR::generate_dists(dists)
 #' @export
-generate_dists <- function(dists){
+generate_dists <- function(dists, perc=0.9999){
 
   # Generate density lines from distribution
   dist_data <- purrr::map_df(1:nrow(dists), function(i){
@@ -32,7 +33,7 @@ generate_dists <- function(dists){
       rate <- dists$g_rate[i]
 
       # Set maximum value
-      xmax <- qgamma(0.9999, shape=shape, rate=rate)
+      xmax <- qgamma(perc, shape=shape, rate=rate)
 
       # Build curve
       x <- seq(xmin, xmax, length.out = 1000)
@@ -57,7 +58,7 @@ generate_dists <- function(dists){
       sdlog <- dists$ln_sdlog[i]
 
       # Set maximum value
-      xmax <- qlnorm(0.9999, meanlog=meanlog, sdlog=sdlog)
+      xmax <- qlnorm(perc, meanlog=meanlog, sdlog=sdlog)
 
       # Build curve
       x <- seq(xmin, xmax, length.out = 200)
