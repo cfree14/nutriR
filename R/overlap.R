@@ -44,10 +44,29 @@ overlap <- function(dist1, dist2, plot=F){
     dist2_func <- function(x){dlnorm(x, sdlog=sdlog2, meanlog=meanlog2)}
   }
 
+  # I got some poor behavior when intergrating from 0-Inf
+  # So I'm going to integrate from 0 to the 2 x the 99.9th percentile instead
+
+  # Step 1. Calculate the 99.9th percentile
+  if(dist1_type=="gamma"){
+    xmax1 <- qgamma(0.999, shape=shape1, rate=rate1)
+  }else{
+    xmax1 <- qlnorm(0.999, sdlog=sdlog1, meanlog=meanlog1)
+  }
+  if(dist2_type=="gamma"){
+    xmax2 <- qgamma(0.999, shape=shape2, rate=rate2)
+  }else{
+    xmax2 <- qlnorm(0.999, sdlog=sdlog2, meanlog=meanlog2)
+  }
+  xmax <- max(xmax1, xmax2)
+
+  #
+  intergral_limit <- xmax*2
+
   # Calculate Bhattacharyya coefficient (percent overlap in two distributions)
   # https://en.wikipedia.org/wiki/Bhattacharyya_distance
   bc_integral <- function(x){sqrt(dist1_func(x)*dist2_func(x))}
-  bc <- try(integrate(bc_integral, lower=0, upper=Inf))
+  bc <- try(integrate(bc_integral, lower=0, upper=intergral_limit))
   if(inherits(bc, "try-error")){
     poverlap <- NA
     warning("Something went wrong with the integral. Returning NA for the percent overlap.")
@@ -58,18 +77,7 @@ overlap <- function(dist1, dist2, plot=F){
   # If plotting
   if(plot==T){
 
-    # Set x-max for simulations
-    if(dist1_type=="gamma"){
-      xmax1 <- qgamma(0.999, shape=shape1, rate=rate1)
-    }else{
-      xmax1 <- qlnorm(0.999, sdlog=sdlog1, meanlog=meanlog1)
-    }
-    if(dist2_type=="gamma"){
-      xmax2 <- qgamma(0.999, shape=shape2, rate=rate2)
-    }else{
-      xmax2 <- qlnorm(0.999, sdlog=sdlog2, meanlog=meanlog2)
-    }
-    xmax <- max(xmax1, xmax2)
+    # X-values (using xmax from above)
     x <- seq(0, xmax, length.out = 1000)
 
     # Simulate values
