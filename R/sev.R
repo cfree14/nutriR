@@ -31,7 +31,6 @@ sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
 
   }else{
 
-
     # Which dist?
     dist <- ifelse(!is.null(shape), "gamma", "log-normal")
 
@@ -53,9 +52,17 @@ sev <- function(ear, cv, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
     # Define integral to solve
     integrant <- function(x){risk_func(x)*Intake(x)}
 
+    # Solving the intregral from 0 to infinity resulted in poor behaviour in some cases
+    # Instead, I have decided to solve the integral from 0 to 2x the 99.9th percentile
+    if(dist=="gamma"){
+      integral_limit <- qgamma(0.999, shape=shape, rate=rate) * 2
+    }else{
+      integral_limit <- qlnorm(0.999, sdlog=sdlog, meanlog=meanlog) * 2
+    }
+
     # Solve integral
     # Add a try function in case there is bad behavior
-    solution <- try(integrate(integrant, lower=0, upper=Inf))
+    solution <- try(integrate(integrant, lower=0, upper=integral_limit))
 
     # Extract SEV
     if(inherits(solution, "try-error")){
