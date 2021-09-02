@@ -55,6 +55,12 @@ Vigenette
 A vignette illustrating the functionality of the "nutriR" package is available here: 
 https://marine.rutgers.edu/~cfree/wp-content/uploads/nutriR-vignette.html
 
+R Shiny web application
+---------
+
+An R Shiny web application for exploring subnational nutrient intake distribtions is available here: 
+https://emlab-ucsb.shinyapps.io/nutriR/
+
 Citation
 ------------
 
@@ -64,5 +70,5 @@ Please cite the R package functions as:
 
 Please cite the data served in the R package as:
 
-* Passarelli S, Free CM, Beal T, Batis Reuvalcaba C, Berger N, Bromage S, Cao L, Castellanos-Guitiérrez A, Crispim S, Shepon A, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J, Gicevic S, Golden CD (in prep) Global modeling of subnational habitual nutrient intake distributions. In prep.
+* Passarelli S, Free CM, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD. Why shape matters: estimating nutrient distributions to improve our understanding of global dietary intake. _Near submission_.
 
