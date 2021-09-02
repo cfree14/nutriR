@@ -66,7 +66,7 @@ Citation
 
 Please cite the R package functions as:
 
-* Free CM, Passarelli S, Beal T, Batis Reuvalcaba C, Berger N, Bromage S, Cao L, Castellanos-Guitiérrez A, Crispim S, Shepon A, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J, Gicevic S, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
+* Free CM, Passarelli S, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
 
 Please cite the data served in the R package as:
 
