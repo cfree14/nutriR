@@ -166,7 +166,7 @@ We will extract the EAR for women in Bangladesh using the Allen et al. (2020) da
 ```{r}
 ?nrvs
 bgd_women15_iron_ear <- nrvs %>%
-  filter(nrv_type=="Average requirement" & nutrient=="Iron (low)" & stage=="Females" & age_group=="15-17 y") %>%
+  filter(nrv_type=="Average requirement" & nutrient=="Iron (low absorption)" & stage=="Females" & age_group=="15-17 y") %>%
   pull(nrv)
 bgd_women15_iron_ear
 ```
@@ -240,11 +240,11 @@ In this case, the mean would have to shift to 29 mg/day of iron to result in a 2
 
 Please cite the R package functions as:
 
-* Free CM, Passarelli S, Beal T, Batis Reuvalcaba C, Berger N, Bromage S, Cao L, Castellanos-Guitiérrez A, Crispim S, Shepon A, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J, Gicevic S, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
+* Free CM, Passarelli S, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
 
 Please cite the data served in the R package as:
 
-* Passarelli S, Free CM, Beal T, Batis Reuvalcaba C, Berger N, Bromage S, Cao L, Castellanos-Guitiérrez A, Crispim S, Shepon A, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J, Gicevic S, Golden CD (in prep) Global modeling of subnational habitual nutrient intake distributions. In prep.
+* Passarelli S, Free CM, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD (in prep) Why shape matters: estimating nutrient distributions to improve our understanding of global dietary intake. In prep.
 
 
 ## 9. References
