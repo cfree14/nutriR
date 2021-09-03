@@ -13,7 +13,7 @@ A data frame with the following attributes::
   \item{sex}{Sex (i.e., males, females, both)}
   \item{stage}{Life stage (i.e., infants, children, pregnancy, lactation, none)}
   \item{age_group}{Age range}
-  \item{nrv_type}{Nutrient reference value type (i.e., AR UL)}
+  \item{nrv_type}{Nutrient reference value type (i.e., AR, UL)}
   \item{nrv}{DRI value}
   \item{nrv_note}{A note}
 }
