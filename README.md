@@ -43,6 +43,7 @@ The package includes the following functions:
 - Generate subnational intake distributions for independent plotting: `?generate_dists`
 - Shift subnational intake distributions of interest: `?shift_dists`
 - Calculate the prevalence of inadequate nutrient intakes (SEVs): `?sev`
+- Calculate the percent of population above the tolerable upper limit: `?above_ul`
 - Calculate the shift required to obtain a target prevalence of inadequate intake: `?shift_req`
 - Calculate the mean of intake distributions: `?mean_dist`
 - Calculate the coefficient of variation (CV) and variance of intake distributions: `?cv`, `?variance`
