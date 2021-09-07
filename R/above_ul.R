@@ -70,10 +70,6 @@ above_ul <- function(ul, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F
           axis.line = element_line(colour = "black"))
       print(g)
 
-      # # Plot risk curve
-      # y2 <- 1 - pnorm(x, mean=ear, sd=ear*cv)
-      # plot(y2 ~ x, type="l", col="red")
-      # abline(v=ear, lty=2)
 
     }
 
