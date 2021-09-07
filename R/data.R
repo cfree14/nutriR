@@ -21,6 +21,27 @@
 #' @source Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020). Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.
 "dris"
 
+#' EFSA Dietary Reference Values (DRVs)
+#'
+#' Dietary Reference Values (DRVs) from the European Food Safety Authority (EFSA).
+#'
+#' @format A data frame with the following attributes::
+#' \describe{
+#'   \item{nutrient_type}{Type of nutrient (i.e., macronutrient, vitamin, element)}
+#'   \item{nutrient_units}{Nutrient name and units}
+#'   \item{nutrient}{Nutrient name}
+#'   \item{units}{Nutrient units (e.g., g/d, mg/d, µg/d)}
+#'   \item{sex_stage}{Sex and life stage (e.g., Infants, Women, Women (pregnant), Women (lactating))}
+#'   \item{sex}{Sex (i.e., males, females, both)}
+#'   \item{stage}{Life stage (i.e., infants, children, pregnancy, lactation, none)}
+#'   \item{age_range}{Age range}
+#'   \item{dri_type}{Dietary reference intake type (i.e., EAR, AI, RDA, UL)}
+#'   \item{value}{DRI value}
+#'   \item{footnote}{Footnote}
+#' }
+#' @source Food and Nutrition Board, National Academy of Sciences, Institute of Medicine (2020). Dietary Reference intakes: Estimated Average requirements and recommended intakes. Accessed at https://www.nal.usda.gov/sites/default/files/fnic_uploads//recommended_intakes_individuals.pdf.
+"drvs"
+
 #' Nutrient Reference Values (NRVs)
 #'
 #' This dataset provides the Nutrient Reference Values (NRVs) from Allen et al. (2020). Allen et al. (2020) selects values from the EFSA (European Food Safety Authority) and the Institute of Medicine (IOM) for average requirements (ARs) and upper levels of intake (ULs).
