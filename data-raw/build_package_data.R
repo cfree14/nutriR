@@ -10,7 +10,7 @@ library(countrycode)
 dists_file <- "/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnational_nutrient_distributions/data/nutrient_intake_distributions_23countries_expanded_final.Rds"
 dists_full <- readRDS(dists_file) %>%
   # Filter to useful columns
-  filter(best_dist!="none" & status !="Fit") %>%
+  filter(best_dist!="none" & status =="Fit") %>%
   # Simplify
   select(-status)
 colnames(dists_full)
