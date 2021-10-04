@@ -33,7 +33,7 @@ get_dists <- function(nutrients=NULL, isos=NULL, sexes=NULL, ages=NULL) {
   }else{
     # For testing: isos <- "USA"; isos <- c("USA", "United States")
     iso_check <- isos[!isos %in% iso_vals]
-    if(length(iso_check)){stop("The following ISO3s are not included in the data: ", paste(nutrient_check, collapse=", "))}
+    if(length(iso_check)){stop("The following ISO3s are not included in the data: ", paste(iso_check, collapse=", "))}
     isos_do <- isos
   }
 
