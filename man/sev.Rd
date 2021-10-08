@@ -22,7 +22,7 @@ sev(ear, cv, shape = NULL, rate = NULL, meanlog = NULL, sdlog = NULL, plot = F)
 \item{plot}{Boolean (TRUE/FALSE) indicating whether to plot the distributions relative to the EAR}
 }
 \value{
-The percent of a population deficient in a nutrient (SEV)
+The percent of a population with inadequate nutrient intakes (SEV)
 }
 \description{
 This function calculates the summary exposure value (SEV), i.e., the percent of a population with inadequate nutrient intakes, for a group based on its Estimated Average Requirement (EAR) and its habitual intake distribution. It uses the probability method (NRC 1986). A CV of 0.25 is recommended for the EAR of Vitamin B12 and a CV of 0.10 is recommended for the EAR of all other nutrients (Renwick et al. 2004).

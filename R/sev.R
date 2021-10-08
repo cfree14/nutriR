@@ -9,7 +9,7 @@
 #' @param meanlog Mean parameter for gamma distribution
 #' @param sdlog Standard deviation parameter for gamma distribution
 #' @param plot Boolean (TRUE/FALSE) indicating whether to plot the distributions relative to the EAR
-#' @return The percent of a population deficient in a nutrient (SEV)
+#' @return The percent of a population with inadequate nutrient intakes (SEV)
 #' @examples
 #' sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
 #' sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)

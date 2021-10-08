@@ -4,18 +4,25 @@
 \alias{cutpoint}
 \title{Calculate prevalence of inadequate intakes using the cutpoint method}
 \usage{
-cutpoint(intake_avg, intake_cv, ear)
+cutpoint(intake_avg, intake_cv, intake_dist, ear)
 }
 \arguments{
 \item{intake_avg}{Mean of the habitual intake distribution}
 
 \item{intake_cv}{Coefficient of variation (CV) of the habitual intake distribution}
 
+\item{intake_dist}{Type of the habitual intake distribution: normal, lognormal, or gamma}
+
 \item{ear}{Estimated Average Requirement (EAR)}
 }
 \value{
-The percent of a population deficient in a nutrient (SEV)
+The percent of a population with inadequate nutrient intakes (SEV)
 }
 \description{
 This function calculates the prevalence of inadequate intakes using the EAR cutpoint method.
+}
+\examples{
+cutpoint(intake_avg=6, intake_cv=0.25, intake_dist="normal", ear=8)
+cutpoint(intake_avg=6, intake_cv=0.25, intake_dist="gamma", ear=8)
+cutpoint(intake_avg=6, intake_cv=0.25, intake_dist="lognormal", ear=8)
 }
