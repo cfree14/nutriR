@@ -16,25 +16,30 @@ cutpoint <- function(intake_avg, intake_cv, intake_dist, ear){
 
   # Check distribution
   dist_check <- intake_dist %in% c("normal", "lognormal", "gamma")
-  if(!dist_check){stop("Intake distribution must be one of the following: normal, lognormal, or gamma")}
+  if(!dist_check){
+    warning("Intake distribution must be one of the following: normal, lognormal, or gamma")
+    pdeficient <- NA
+  }else{
 
-  # Normal distribution
-  if(intake_dist=="normal"){
-    pdeficient <- pnorm(q=ear, mean=intake_avg, sd=intake_avg*intake_cv) * 100
-  }
+    # Normal distribution
+    if(intake_dist=="normal"){
+      pdeficient <- pnorm(q=ear, mean=intake_avg, sd=intake_avg*intake_cv) * 100
+    }
 
-  # Gamma distribution
-  if(intake_dist=="lognormal"){
-    sdlog <- sqrt(log(intake_cv^2+1))
-    meanlog <- log(intake_avg) - sdlog^2/2
-    pdeficient <- plnorm(q=ear, meanlog=meanlog, sdlog=sdlog) * 100
-  }
+    # Gamma distribution
+    if(intake_dist=="lognormal"){
+      sdlog <- sqrt(log(intake_cv^2+1))
+      meanlog <- log(intake_avg) - sdlog^2/2
+      pdeficient <- plnorm(q=ear, meanlog=meanlog, sdlog=sdlog) * 100
+    }
 
-  # Gamma distribution
-  if(intake_dist=="gamma"){
-    shape <- (1 / intake_cv) ^ 2
-    rate <- shape / intake_avg
-    pdeficient <- pgamma(q=ear, shape=shape, rate=rate) * 100
+    # Gamma distribution
+    if(intake_dist=="gamma"){
+      shape <- (1 / intake_cv) ^ 2
+      rate <- shape / intake_avg
+      pdeficient <- pgamma(q=ear, shape=shape, rate=rate) * 100
+    }
+
   }
 
   # Return
