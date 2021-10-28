@@ -21,6 +21,7 @@ Knowledge of human diets and nutrient intakes is critical to understanding and i
 
 These data are critical to research and policy related to public health. For example, these data can be used to: (1) determine the risk of nutrient deficiency, nutrient overload, or chronic disease risk within subpopulations and to identify vulnerable groups; (2) estimate the magnitude of dietary shifts required to reduce adverse health impacts; (3) evaluate and design interventions for achieving these shifts; and (4) optimize sustainable food systems to simultaneously consider the environmental impact and nutrient supply of dietary intake patterns. 
 
+This package provides the parameters describing the habitual intake distributions estimated by Passarelli et al. (in prep) as well as various reference values datasets that can be used to estimate prevalence of nutrient intakes that are either too low or too high. It also includes functions for estimating (1) properties of these distributions, (2) prevalence of inadequate intakes or intakes that are too high, and (3) magnitudes of shifts required to close nutrient gaps.
 
 Datasets
 ---------
