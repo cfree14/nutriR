@@ -72,9 +72,9 @@ Citation
 
 Please cite the R package functions as:
 
-* Free CM, Passarelli S, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
+* Free CM, Passarelli S, Allen LH, Beal T, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim SP, Dekkers A, De Ridder K, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I,  Batis C, Schmidhuber J,  Shepon A, Viana DF, Golden CD (2021) nutriR: Nutritional intake functions for R. Available at: https://github.com/cfree14/nutriR
 
 Please cite the data served in the R package as:
 
-* Passarelli S, Free CM, Batis Reuvalcaba C, Beal T, Berger N, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim S, Dekkers A, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I, Schmidhuber J,  Shepon A, Golden CD. Why shape matters: estimating nutrient distributions to improve our understanding of global dietary intake. _Near submission_.
+* Passarelli S, Free CM, Allen LH, Beal T, Biltoft-Jensen AP, Bromage S, Cao L, Castellanos-Guitiérrez A, Christensen T, Crispim SP, Dekkers A, De Ridder K, Gicevic S, Lee C, Li Y, Moursi M, Moyersoen I,  Batis C, Schmidhuber J,  Shepon A, Viana DF, Golden CD (in prep) Estimating national and sub-national habitual nutrient intake distributions of global diets. _Near submission_.
 
