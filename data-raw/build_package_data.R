@@ -7,7 +7,7 @@ library(countrycode)
 #####################################################################################
 
 # Read distributions
-dists_file <- "/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnational_nutrient_distributions/data/nutrient_intake_distributions_31countries_expanded_final.Rds"
+dists_file <- "/Users/cfree/Dropbox/Chris/UCSB/projects/nutrition/subnational_nutrient_distributions/data/nutrient_intake_distributions_32countries_expanded_final.Rds"
 dists_full <- readRDS(dists_file) %>%
   # Filter to useful columns
   filter(best_dist!="none" & status =="Fit") %>%
