@@ -17,8 +17,11 @@ library(nutriR)
 
 Overview
 ---------
-Coming soon.
+Knowledge of human diets and nutrient intakes is critical to understanding and improving human nutrition, food security, and many other public health outcomes, but research in this area has been limited by a lack of centralized, standardized, and publicly available dietary intake data. We fill this gap by developing a comprehensive and publicly available database of global dietary data and using it to derive habitual nutrient intake distributions for more than 50 micronutrients and macronutrients spanning 40 subnational populations (sex-age groups) in 30 countries. 
 
+These data are critical to research and policy related to public health. For example, these data can be used to: (1) determine the risk of nutrient deficiency, nutrient overload, or chronic disease risk within subpopulations and to identify vulnerable groups; (2) estimate the magnitude of dietary shifts required to reduce adverse health impacts; (3) evaluate and design interventions for achieving these shifts; and (4) optimize sustainable food systems to simultaneously consider the environmental impact and nutrient supply of dietary intake patterns. 
+
+This package provides the parameters describing the habitual intake distributions estimated by Passarelli et al. (in prep) as well as various reference values datasets that can be used to estimate prevalence of nutrient intakes that are either too low or too high. It also includes functions for estimating (1) properties of these distributions, (2) prevalence of inadequate intakes or intakes that are too high, and (3) magnitudes of shifts required to close nutrient gaps. Additionally, it includes functions for visualizing habitual intake distributions and for shifting habitual intake distributions in response to a simulated intervention (or recalibration).
 
 Datasets
 ---------
