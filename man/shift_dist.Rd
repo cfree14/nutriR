@@ -2,7 +2,7 @@
 % Please edit documentation in R/shift_dists.R
 \name{shift_dist}
 \alias{shift_dist}
-\title{Shift the mean of a habitual intake distribution}
+\title{Shift the scale of a habitual intake distribution}
 \usage{
 shift_dist(
   shape = NULL,
@@ -11,6 +11,7 @@ shift_dist(
   sdlog = NULL,
   by = NULL,
   to = NULL,
+  type = "mean",
   plot = F
 )
 }
@@ -23,9 +24,11 @@ shift_dist(
 
 \item{sdlog}{Standard deviation parameter for gamma distribution}
 
-\item{by}{Amount to shift the current mean by}
+\item{by}{Amount to shift the current mean/median by}
 
-\item{to}{New mean to shift the current mean to}
+\item{to}{New mean/median to shift the current mean/median to}
+
+\item{type}{Measure of scale to shift ("mean" or "median"); mean is default}
 
 \item{plot}{Boolean (TRUE/FALSE) indicating whether to plot the current/shifted distributions}
 }
@@ -33,7 +36,7 @@ shift_dist(
 A list with the parameters for the shifted distribution
 }
 \description{
-This function shifts the mean of a habitual intake distribution and provides the new parameters used to describe the shifted distribution.
+This function shifts the scale of a habitual intake distribution and provides the new parameters used to describe the shifted distribution. The shift in scale is defined by either a shift in the mean or median of of the habitual intake distribution.
 }
 \examples{
 # Shift gamma distribution by an amount (2 and -3)
