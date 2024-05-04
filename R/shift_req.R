@@ -42,9 +42,9 @@ shift_req <- function(ear, cv, target, shape=NULL, rate=NULL, meanlog=NULL, sdlo
     # and the p(deficient) produced by an evaluated mean intake
     minDiff <- function(mu){
       # Shift distribution
-      dist_i <- shift_dist(shape=shape, rate=rate, meanlog=meanlog, sdlog=sdlog, to=mu, plot=F)
+      dist_i <- nutriR::shift_dist(shape=shape, rate=rate, meanlog=meanlog, sdlog=sdlog, to=mu, plot=F)
       # Calculate SEV of shifted distribution
-      sev_i <- sev(ear=ear, cv=cv, shape=dist_i$shape, rate=dist_i$rate, meanlog=dist_i$meanlog, sdlog=dist_i$sdlog)
+      sev_i <- nutriR::sev(ear=ear, cv=cv, shape=dist_i$shape, rate=dist_i$rate, meanlog=dist_i$meanlog, sdlog=dist_i$sdlog)
       # Calculate difference between realized SEV and target SEV
       diff_i <- abs(sev_i - target)
       return(diff_i)
@@ -55,7 +55,7 @@ shift_req <- function(ear, cv, target, shape=NULL, rate=NULL, meanlog=NULL, sdlo
     mu_req <- fit$minimum
 
     # Determine properties for the required intake distribution
-    dist_req <- shift_dist(shape=shape, rate=rate, meanlog=meanlog, sdlog=sdlog, to=mu_req, plot=F)
+    dist_req <- nutriR::shift_dist(shape=shape, rate=rate, meanlog=meanlog, sdlog=sdlog, to=mu_req, plot=F)
 
     # Plot data
     if(plot){
@@ -158,7 +158,9 @@ shift_req <- function(ear, cv, target, shape=NULL, rate=NULL, meanlog=NULL, sdlo
 
   # Format outout
   output <- dist_req
-  output$mean <- mean2
+  output$mean <- ifelse(dist_do=="gamma",
+                        nutriR::mean_dist(shape=output$shape, rate=output$rate),
+                        nutriR::mean_dist(meanlog=output$meanlog, sdlog=output$sdlog))
 
   # Return
   return(output)
