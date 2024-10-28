@@ -69,7 +69,7 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
       integral_limit <- qlnorm(0.999, sdlog=sdlog, meanlog=meanlog) * 2
     }
     if(dist=="normal"){
-      integral_limit <- qnorm(0.999, sd=sd, mean=mean) * 2
+      integral_limit <- qnorm(0.999, mean=mean, sd=sd) * 2
     }
 
     # Solve integral
