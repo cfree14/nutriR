@@ -4,12 +4,26 @@
 \alias{sev}
 \title{Calculate summary exposure value}
 \usage{
-sev(ear, cv, shape = NULL, rate = NULL, meanlog = NULL, sdlog = NULL, plot = F)
+sev(
+  ear,
+  cv,
+  mean = NULL,
+  sd = NULL,
+  shape = NULL,
+  rate = NULL,
+  meanlog = NULL,
+  sdlog = NULL,
+  plot = F
+)
 }
 \arguments{
 \item{ear}{Estimated Average Requirement (EAR)}
 
 \item{cv}{Coefficient of variation (CV) of the EAR}
+
+\item{mean}{Mean for normal distribution}
+
+\item{sd}{Standard deviation for normal distribution}
 
 \item{shape}{Shape parameter for gamma distribution}
 
@@ -28,6 +42,7 @@ The percent of a population with inadequate nutrient intakes (SEV)
 This function calculates the summary exposure value (SEV), i.e., the percent of a population with inadequate nutrient intakes, for a group based on its Estimated Average Requirement (EAR) and its habitual intake distribution. It uses the probability method (NRC 1986). A CV of 0.25 is recommended for the EAR of Vitamin B12 and a CV of 0.10 is recommended for the EAR of all other nutrients (Renwick et al. 2004).
 }
 \examples{
+sev(ear=8.1, cv=0.1, mean=8.5, sd=1.3, plot=T)
 sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
 sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
 }
