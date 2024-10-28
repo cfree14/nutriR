@@ -62,7 +62,7 @@ Vigenette
 ---------
 
 A vignette illustrating the functionality of the "nutriR" package is available here: 
-https://marine.rutgers.edu/~cfree/wp-content/uploads/nutriR-vignette.html
+https://chrismfree.com/wp-content/uploads/nutriR-vignette.html
 
 R Shiny web application
 ---------
