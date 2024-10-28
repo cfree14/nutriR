@@ -45,7 +45,7 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
     if(dist=="log-normal"){
       Intake <- function(x){dlnorm(x, meanlog=meanlog, sdlog=sdlog)}
     }
-    if(dist=="log-normal"){
+    if(dist=="normal"){
         Intake <- function(x){dnorm(x, mean=mean, sd=sd)}
     }
 
