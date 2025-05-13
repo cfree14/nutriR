@@ -4,6 +4,7 @@
 #'
 #' @param ear Estimated Average Requirement (EAR)
 #' @param cv Coefficient of variation (CV) of the EAR
+#' @param ear_log Boolean (TRUE/FALSE) indicating if the requirement distribution is lognormal. Default=F.
 #' @param mean Mean for normal distribution
 #' @param sd Standard deviation for normal distribution
 #' @param shape Shape parameter for gamma distribution
@@ -16,12 +17,13 @@
 #' sev(ear=8.1, cv=0.1, mean=8.5, sd=1.3, plot=T)
 #' sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
 #' sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
+#' sev(ear=8.1, cv=0.44, ear_log=T, meanlog=1.84, sdlog=0.35, plot=T) # log-normal iron requirement
 #' @references
 #' National Research Council (1986) Nutrient Adequacy: Assessment Using Food Consumption Surveys. Washington, DC: The National Academies Press. https://doi.org/10.17226/618.
 #'
 #' Renwick AG, Flynn A, Fletcher RJ, Müller DJ, Tuijtelaars S, Verhagen H (2004) Risk-benefit analysis of micronutrients. Food and Chemical Toxicology 42(12): 1903-22. https://doi.org/10.1016/j.fct.2004.07.013
 #' @export
-sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
+sev <- function(ear, cv, ear_log=F, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL, sdlog=NULL, plot=F){
 
   # Notes on an example where you get "bad integrand behavior"
   # ear <- 10; cv <- 0.1; meanlog <- -36.92221; sdlog <- 46.77756; shape <- NULL
@@ -55,7 +57,13 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
     # https://ec.europa.eu/food/sites/food/files/safety/docs/labelling_nutrition-supplements-responses-ilsi_annex1_en.pdf
 
     # Define risk curve
-    risk_func <- function(x){1-pnorm(x, mean=ear, sd=ear*cv)}
+    if(ear_log==F){
+      risk_func <- function(x){1-pnorm(x, mean=ear, sd=ear*cv)}
+    }else{
+      sdlog_ar <- sqrt(log(1 + cv^2))
+      meanlog_ar <- log(ear)-sdlog_ar^2/2
+      risk_func <- function(x){1-plnorm(x, meanlog=meanlog_ar, sdlog=sdlog_ar)}
+    }
 
     # Define integral to solve
     integrant <- function(x){risk_func(x)*Intake(x)}
@@ -84,10 +92,20 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
       sev <- solution$value * 100
     }
 
+    # Test calculation of SEV using log-normal AR
+    # sev(ear=8.1, cv=0.44, ear_log=T, meanlog=1.84, sdlog=0.35, plot=T) # log-normal iron requirement
+    # intakes <- rlnorm(n=10000, meanlog=1.84, sdlog=0.35)
+    # ear <- 8.1
+    # cv <- 0.4
+    # sdlog_ar <- sqrt(log(1 + cv^2))
+    # meanlog_ar <- log(ear)-sdlog_ar^2/2
+    # ars <- rlnorm(n=10000, meanlog=log(ear)-sdlog_ar^2/2, sdlog=sqrt(log(1 + 0.44^2)))
+    # sum(intakes<=ars)/length(ars)
+
     # Plot data
     if(plot){
 
-      # Simulate
+      # Simulate intakes
       if(dist=="gamma"){
         xmax <- qgamma(0.9999, shape=shape, rate=rate)
         x <- seq(0, xmax, length.out = 1000)
@@ -104,19 +122,36 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
         y <- dnorm(x, mean=mean, sd=sd)
       }
 
+      # Build requirements
+      if(ear_log==F){
+        risk <- 1-pnorm(x, mean=ear, sd=ear*cv)
+        ar <- dnorm(x, mean=ear, sd=ear*cv)
+      }else{
+        sdlog_ar <- sqrt(log(1 + cv^2))
+        meanlog_ar <- log(ear)-sdlog_ar^2/2
+        risk <- 1-plnorm(x, meanlog=meanlog_ar, sdlog=sdlog_ar)
+        ar <- dlnorm(x, meanlog=meanlog_ar, sdlog=sdlog_ar)
+      }
+
       # Merge
       df <- tibble(intake=x,
-                   density=y)
+                   density=y/max(y),
+                   ar=ar/max(ar),
+                   risk=risk)
 
       # Plot distributon
       g <- ggplot(df, mapping=aes(x=intake, y=density)) +
         geom_line() +
+        # Plot requirement distribution
+        geom_line(df, mapping=aes(x=intake, y=ar), linetype="dotted") +
+        # Plot risk curve
+        geom_line(df, mapping=aes(x=intake, y=risk), color="red") +
         # Labels
         labs(x="Habitual intake", y="Density",
              title=paste0(round(sev, 1), "% of population with inadequate intake")) +
         # Plot EAR
         geom_vline(xintercept=ear, linetype="dotted") +
-        annotate("text", x=ear, y=max(df$density), label=ear, hjust=-0.4) +
+        annotate("text", x=ear, y=1.05, label=ear, hjust=-0.4) +
         # Theme
         theme_bw() +
         theme(# Gridlines
@@ -139,3 +174,4 @@ sev <- function(ear, cv, mean=NULL, sd=NULL, shape=NULL, rate=NULL, meanlog=NULL
   return(sev)
 
 }
+
