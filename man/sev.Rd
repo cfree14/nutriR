@@ -7,6 +7,7 @@
 sev(
   ear,
   cv,
+  ear_log = F,
   mean = NULL,
   sd = NULL,
   shape = NULL,
@@ -20,6 +21,8 @@ sev(
 \item{ear}{Estimated Average Requirement (EAR)}
 
 \item{cv}{Coefficient of variation (CV) of the EAR}
+
+\item{ear_log}{Boolean (TRUE/FALSE) indicating if the requirement distribution is lognormal. Default=F.}
 
 \item{mean}{Mean for normal distribution}
 
@@ -45,6 +48,7 @@ This function calculates the summary exposure value (SEV), i.e., the percent of 
 sev(ear=8.1, cv=0.1, mean=8.5, sd=1.3, plot=T)
 sev(ear=8.1, cv=0.1, shape=9.5, rate=1.3, plot=T)
 sev(ear=8.1, cv=0.1, meanlog=1.9, sdlog=0.3, plot=T)
+sev(ear=8.1, cv=0.44, ear_log=T, meanlog=1.84, sdlog=0.35, plot=T) # log-normal iron requirement
 }
 \references{
 National Research Council (1986) Nutrient Adequacy: Assessment Using Food Consumption Surveys. Washington, DC: The National Academies Press. https://doi.org/10.17226/618.
